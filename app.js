@@ -1,13 +1,14 @@
 import './node_modules/jquery/dist/jquery.js'
 import { ApplicationBase } from './framework/application-base.mjs'
 import { ContactPage } from './pages/contact-page.mjs';
+import { BusinessPlan } from './pages/businessplan-page.mjs';
 
 export class App extends ApplicationBase {
     constructor() {
         super('OTF');
 
-        this.addRoute('Affärsidé', null);
-        this.addRoute('Kontakt', new ContactPage('Contact'));
+        this.addRoute('Affärsidé', new BusinessPlan(''), true);
+        this.addRoute('Kontakt', new ContactPage(''));
         this.addRoute('Prototyp', null);
     }
 }

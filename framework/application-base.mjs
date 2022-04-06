@@ -41,7 +41,7 @@ export class ApplicationBase {
             this.activateRoute(this.defaultRoute);
         }
 
-        //this.footerBar.appendToElement(element);
+        this.footerBar.appendToElement(element);
     }
     
 }
