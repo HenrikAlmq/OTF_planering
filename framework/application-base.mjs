@@ -30,7 +30,7 @@ export class ApplicationBase {
 
     show(element){
         this.titleBar.appendToElement(element);
-        this.footerBar.appendToElement(element);
+        
 
         this.titleBar.element.find('.mdl-navigation__link').click((event) => {
             let route = event.target.innerHTML;
@@ -40,6 +40,8 @@ export class ApplicationBase {
         if (this.defaultRoute) {
             this.activateRoute(this.defaultRoute);
         }
+
+        //this.footerBar.appendToElement(element);
     }
     
 }

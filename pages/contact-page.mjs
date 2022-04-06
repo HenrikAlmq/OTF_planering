@@ -1,5 +1,6 @@
 import { Page } from "../framework/page.mjs";
 import { application } from "../app.js";
+import { Content } from "../ui/content-main.mjs";
 
 export class ContactPage extends Page {
     constructor() {
@@ -8,8 +9,9 @@ export class ContactPage extends Page {
 
     createElement() {
         super.createElement();
+        let c = new Content();
+        c.appendToElement(this.element);
         
-        let data = 'Namn:Henrik Email:almqvist.henric@gmail.com Telefonnummer:0705790567'.split(' ');
     }
 
     getElementString() {
