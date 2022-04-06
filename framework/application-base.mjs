@@ -1,20 +1,23 @@
 import { TitleBar } from "../ui/title-bar.mjs";
+import { Footer } from "../ui/footer.mjs";
 
 export class ApplicationBase {
     constructor(title) {
+        
         this.title = title;
         this.titleBar = new TitleBar(this.title);
+        this.footerBar = new Footer(this.title);
         this.routeMap = {};
         this.defaultRoute = null;
     }
-
+    
     activateRoute(route){
         let content = this.titleBar.element.find('.page-content');
         content.empty();
 
         this.routeMap[route].appendToElement(content);
     }
-    debugger;
+    
     addRoute(id, pageObject, defaultRoute = false){
         this.titleBar.addLink(id, '');
 
@@ -27,6 +30,7 @@ export class ApplicationBase {
 
     show(element){
         this.titleBar.appendToElement(element);
+        this.footerBar.appendToElement(element);
 
         this.titleBar.element.find('.mdl-navigation__link').click((event) => {
             let route = event.target.innerHTML;
@@ -37,4 +41,5 @@ export class ApplicationBase {
             this.activateRoute(this.defaultRoute);
         }
     }
+    
 }
