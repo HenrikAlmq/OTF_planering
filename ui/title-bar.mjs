@@ -20,7 +20,7 @@ export class TitleBar extends BaseElement {
         for (let link of this.links)
             links += `<a class="mdl-navigation__link">${link.title}</a>\n`;
         return `
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div id="test" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
             <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
         <!-- Title -->
@@ -31,8 +31,9 @@ export class TitleBar extends BaseElement {
         <nav class="mdl-navigation mdl-layout--large-screen-only">
              ${links}
         </nav>
+        
     </div>
-  </header>
+        </header>
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">${this.title}</span>
         <nav class="mdl-navigation">

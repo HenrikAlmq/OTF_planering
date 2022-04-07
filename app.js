@@ -11,6 +11,7 @@ export class App extends ApplicationBase {
         this.addRoute('Affärsidé', new BusinessPlan(''), true);
         this.addRoute('Kontakt', new ContactPage(''));
         this.addRoute('Prototyp', new ProtoType(''));
+        
     }
 }
 

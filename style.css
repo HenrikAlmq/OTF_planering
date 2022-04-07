@@ -24,6 +24,7 @@ body {
     cursor: pointer;
 }
 
+
 .mdl-mini-footer {
     position:absolute;
     bottom:0;
@@ -31,6 +32,8 @@ body {
     height:10px;   /* Height of the footer */
     background: rgb(43, 42, 42);
     font-size: 25px;
+    padding-right: 0;
+    padding-left: 0;
  }
 
 #foot {
@@ -40,4 +43,8 @@ body {
 
  .mdl-mini-footer__left-section {
     margin: auto;
+ }
+
+ #gridLayout {
+     width: 100px;
  }

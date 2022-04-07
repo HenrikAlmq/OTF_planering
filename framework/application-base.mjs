@@ -9,6 +9,7 @@ export class ApplicationBase {
         this.footerBar = new Footer(this.title);
         this.routeMap = {};
         this.defaultRoute = null;
+        
     }
     
     activateRoute(route){
@@ -26,6 +27,8 @@ export class ApplicationBase {
         if (defaultRoute) {
             this.defaultRoute = id;
         }
+
+        
     }
 
     show(element){
@@ -43,5 +46,6 @@ export class ApplicationBase {
 
         this.footerBar.appendToElement(element);
     }
+
     
 }
