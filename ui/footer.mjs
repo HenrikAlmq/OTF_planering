@@ -12,7 +12,6 @@ export class Footer extends BaseElement{
             <div class="mdl-mini-footer__left-section">
                 <div class="mdl-logo">
                     <p id="foot">${this.title} & all rights reserved &copy Henrik Almqvist Moderna Webbapplikationer inlämning 1</p>  
-                    
                 </div>
             </div>
         </footer>`
