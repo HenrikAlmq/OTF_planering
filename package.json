@@ -1,0 +1,29 @@
+{
+  "name": "OTF_planering",
+  "version": "1.0.0",
+  "description": "",
+  "source": "app.html",
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.4.1"
+  },
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HenrikAlmq/OTF_planering.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HenrikAlmq/OTF_planering/issues"
+  },
+  "homepage": "https://github.com/HenrikAlmq/OTF_planering#readme"
+}
