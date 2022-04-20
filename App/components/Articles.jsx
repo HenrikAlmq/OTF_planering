@@ -1,10 +1,11 @@
-import React from 'react'
-import Test from '../Test'
+import React, { useState } from 'react';
 
 function Articles() {
+
+    
   return (
-    <Test />
+    <h2>Artiklar</h2>
   )
 }
 
-export default Articles
+export default Articles;

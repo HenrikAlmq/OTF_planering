@@ -28,9 +28,15 @@ input[type=text], input[type=password] {
     opacity: 0.8;
   }
 
-  .App {
+  .form-inner {
+    border: solid black 2px;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  form {
     padding-top: 70px;
-    
     margin: 0;
     list-style: none;
     display: flex;
@@ -46,4 +52,47 @@ input[type=text], input[type=password] {
 
 .form-inner img {
     width: 300px;
+    padding-left: 20px;
+}
+
+.navbar {
+  background-color: #444;
+  padding: 0 15px;
+}
+
+.container {
+  padding: 0 30px;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.navbar ul {
+  display: flex;
+}
+
+.navbar ul li {
+  margin-left: 20px;
+}
+
+.navbar a {
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+}
+
+.nav {
+  list-style-type: none;
+}
+
+li {
+  padding: 10px;
+}
+
+a:hover {
+  color: #ccc;
 }

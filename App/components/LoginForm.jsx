@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Logotyp from '../image/logotyp.svg';
+import Logotyp from '../image/Ontheflykek.png';
 
 function LoginForm({ Login, error }) { //tar in Login och error som props
     const [details, setDetails] = useState({username: "", password: ""}); //Lokala details för mitt form
@@ -14,7 +14,6 @@ function LoginForm({ Login, error }) { //tar in Login och error som props
     <form onSubmit={submitHandler} /*Kallar på submitHandler*/> 
         <div className="form-inner">
             <img src={Logotyp} alt="Logotyp" />
-            <h2>Logga in</h2>
             {(error != "") ? (<div className='error'>{error}</div>) : ""}
             <div className="form-group">
                 <label htmlFor="username">Användarnamn:</label>
