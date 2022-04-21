@@ -20,7 +20,6 @@ class Deliveries extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.name + this.state.delivery);
     localStorage.setItem("Delivery", JSON.stringify(this.state));
     console.log(this.state.name, this.state.delivery)
     event.preventDefault();
