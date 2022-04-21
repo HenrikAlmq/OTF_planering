@@ -3,7 +3,7 @@ import Logotyp from '../image/Ontheflykek.png';
 
 function LoginForm({ Login, error }) { //tar in Login och error som props
     const [details, setDetails] = useState({username: "", password: ""}); //Lokala details för mitt form
-
+    
     const submitHandler = e => {
         e.preventDefault(); //För att inte sidan ska renderas om på nytt.
 

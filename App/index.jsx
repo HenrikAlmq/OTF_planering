@@ -7,6 +7,7 @@ import index from './index.css';
 import Articles from './components/Articles';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route, Routes } from "react-router-dom";
+import Footer from './components/Footer';
 
 
 
@@ -16,7 +17,7 @@ function App() {
         password: "admin123"
     }
 
-    const [user, setUser] = useState({ username: "" }); //Anger data vid inloggningen med setUser.
+    const [user, setUser] = useState({ username: "" }); //Anger data i state vid inloggningen med setUser.
     const [error, setError] = useState(""); //Fångar felmeddelande i setError
 
     const Login = (details) => {
@@ -41,13 +42,14 @@ function App() {
             {(user.username != "") ? (
                 <Router>
                     <div>
-                        <Navbar />
+                        <Navbar user={username}/>
                         <Routes>
                             <Route path="/deliveries" element={<Deliveries />}></Route>
                             <Route path="/articles" element={<Articles />}></Route>
                         </Routes>
                         <br />
                         <button onClick={Logout}>Logga ut</button>
+                        <Footer/>
                     </div>
                 </Router>
             ) : (
