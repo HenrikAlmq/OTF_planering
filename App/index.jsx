@@ -33,8 +33,8 @@ function App() {
         }
     }
 
-    const Logout = () => {
-        setUser({ username: "" });
+    const Logout = (details) => {
+        setUser({ username: details.username });
     }
 
     return (
@@ -48,8 +48,7 @@ function App() {
                             <Route path="/articles" element={<Articles />}></Route>
                         </Routes>
                         <br />
-                        <button onClick={Logout}>Logga ut</button>
-                        <Footer/>
+                        <Footer Logout={Logout} />
                     </div>
                 </Router>
             ) : (
