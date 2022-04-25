@@ -3,30 +3,51 @@ import React from 'react'
 class Deliveries extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      name: '', 
-      delivery: '',
-      deliveryAddress: '',
-      zipCode: ''
-    };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    const storedState = localStorage.getItem("Delivery");
+
+    if (storedState) {
+      this.state = JSON.parse(storedState);
+    } else {
+      this.state = {
+        name: '', 
+        delivery: '',
+        deliveryAddress: '',
+        zipCode: ''
+      };
+    }
   }
 
- 
+  // I min render ska jag endast använda state/props
+  // Skapa state från localstorage 
+  // I handlesubmit så sparar jag ordern och även sätter state och localstorage och sedan läsa från konstruktorn. 
+  
 
   handleChangeLambda = (e) => {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  handleSubmit(event) {
+  handleSubmit = (e) => {
     localStorage.setItem("Delivery", JSON.stringify(this.state));
-    console.log(this.state.name, this.state.delivery)
-    event.preventDefault();
+    e.preventDefault();
+    this.setState({[e.target.name]: e.target.value})
+    
   }
 
+  renderDelivery() {
+    
+    let getLocalStorage = localStorage.getItem("Delivery");
+    
+    if (getLocalStorage != null) {
+      return (<h1>Order skapad: <br />Namn: {this.state.name} <br /> Ordernummer:{this.state.delivery} <br />Leveransadress:{this.state.deliveryAddress} <br />Postnummer:{this.state.zipCode}</h1>)
+    }
+  }
+
+
   render() {
+    
     return (
+      <>
       <form onSubmit={this.handleSubmit}>
         <label>
           Namn:
@@ -46,9 +67,12 @@ class Deliveries extends React.Component {
         </label>
         <input type="submit" value="Skapa order" />
       </form>
+      <div>
+        {this.renderDelivery()}
+      </div>
+      </>
     );
   }
-
 }
 
 
