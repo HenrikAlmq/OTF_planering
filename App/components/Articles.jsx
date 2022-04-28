@@ -1,6 +1,7 @@
 import Header from "./Header"
 import { ArticleList } from "./ArticleList"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import AddArticle from "./AddArticle"
 
 const Articles = () => {
   const [articles, setArticles] = useState([
@@ -32,10 +33,30 @@ const Articles = () => {
         InStock: false
     }
 ])
+
+useEffect(() => {
+    
+})
+
+
+//Ta bort artikel
+const deleteArticle = (id) => {
+  setArticles(articles.filter((article) => article.ProductId !== id))
+}
+
+//Lägg till artikel
+const addArticle = (article) => {
+  
+  const ProductId = Math.floor(Math.random() * 1000) + 1
+  const newArticle = { ProductId, ...article }
+  setArticles([...articles, newArticle])
+}
+
   return (
     <div>
       <Header title='Artikelvy' />
-      <ArticleList articles={articles} />
+      <AddArticle onAdd={addArticle} />
+      {articles.length > 0 ? <ArticleList articles={articles} onDelete={deleteArticle}/> : 'Inga artiklar skapade'}
     </div>
   )
 }
