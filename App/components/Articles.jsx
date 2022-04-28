@@ -1,55 +1,43 @@
-import React, { useState } from 'react';
+import Header from "./Header"
+import { ArticleList } from "./ArticleList"
+import { useState } from 'react'
 
-function Articles() {
-  const [article, setArticle] = useState({ articlenumber: "", articledescription: "", barcode: "", volume: "", weight: "" });
-
-  const saveLocal = e => {
-    e.preventDefault();
-    
-    console.log(article);
-    let getCurrent = localStorage.getItem('Articles');
-    getCurrent = getCurrent ? getCurrent.split(',') : [];
-    getCurrent.push(article)
-    localStorage.setItem(article.articlenumber, JSON.stringify(article));
-  }
-
+const Articles = () => {
+  const [articles, setArticles] = useState([
+    {
+        ProductId: 1,
+        ArticleNumber: "Unik keps",
+        ArticleDescription: "Snapback grön",
+        Barcode: 7237374374,
+        Volume: 1.5,
+        Weight: 1,
+        InStock: true
+    },
+    {
+        ProductId: 2,
+        ArticleNumber: "ChelseaFC keps",
+        ArticleDescription: "Snapback blå",
+        Barcode: 7237374374,
+        Volume: 1,
+        Weight: 1.5,
+        InStock: true
+    },
+    {
+        ProductId: 3,
+        ArticleNumber: "McLarenF1 keps",
+        ArticleDescription: "Snapback orange",
+        Barcode: 7237374374,
+        Volume: 0.5,
+        Weight: 2,
+        InStock: false
+    }
+])
   return (
-    <form onSubmit={saveLocal}>
-      <div className="page">
-        <label className="field field_v1">
-          <input className='field__input' type="articlenumber" name="articlenumber" id="articlenumber" placeholder='ex. abc123' onChange={e => setArticle({ ...article, articlenumber: e.target.value })} value={article.articlenumber} />
-          <span className="field__label-wrap">
-            <span className="field__label">Artikelnummer</span>
-          </span>
-        </label>
-        <label className="field field_v1">
-          <input className='field__input' type="articledescription" name="articledescription" id="articledescription" placeholder='ex. Grön spade' onChange={e => setArticle({ ...article, articledescription: e.target.value })} value={article.articledescription} />
-          <span className="field__label-wrap">
-            <span className="field__label">Artikelbeskrivning</span>
-          </span>
-        </label>
-        <label className="field field_v1">
-          <input className='field__input' type="barcode" name="barcode" id="barcode" placeholder='ex. 73748437463' onChange={e => setArticle({ ...article, barcode: e.target.value })} value={article.barcode} />
-          <span className="field__label-wrap">
-            <span className="field__label">EAN</span>
-          </span>
-        </label>
-        <label className="field field_v1">
-          <input className='field__input' type="volume" name="volume" id="volume" placeholder='ex. 0,5' onChange={e => setArticle({ ...article, volume: e.target.value })} value={article.volume} />
-          <span className="field__label-wrap">
-            <span className="field__label">Volym</span>
-          </span>
-        </label>
-        <label className="field field_v1">
-          <input className='field__input' type="weight" name="weight" id="weight" placeholder='ex. 1' onChange={e => setArticle({ ...article, weight: e.target.value })} value={article.weight} />
-          <span className="field__label-wrap">
-            <span className="field__label">Vikt(kg)</span>
-          </span>
-        </label>
-        <input type="submit" value="Skapa artikel" />
-      </div>
-    </form>
+    <div>
+      <Header title='Artikelvy' />
+      <ArticleList articles={articles} />
+    </div>
   )
 }
 
-export default Articles;
+export default Articles
