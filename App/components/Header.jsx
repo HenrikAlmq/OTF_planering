@@ -8,7 +8,7 @@ const Header = ({ title }) => {
   return (
     <div>
         <h1>{title}</h1>
-        <Button color='white' text='Skapa artikel' onClick={onClick}/>
+        <Button color='black' text='Skapa artikel' onClick={onClick}/>
     </div>
   )
 }
