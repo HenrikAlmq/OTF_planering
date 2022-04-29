@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import Deliveries from './Deliveries';
 import LoginForm from './components/LoginForm'
@@ -16,6 +16,10 @@ function App() {
         username: "Henrik",
         password: "admin123"
     }
+
+    useEffect(() => {
+        
+    })
 
     const [user, setUser] = useState({ username: "" }); //Anger data i state vid inloggningen med setUser.
     const [error, setError] = useState(""); //Fångar felmeddelande i setError
