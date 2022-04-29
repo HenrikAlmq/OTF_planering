@@ -1,3 +1,5 @@
+
+
 * {
     margin: 0;
     padding: 0;
@@ -14,6 +16,7 @@ input[type=text], input[type=password] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     color: black;
+    
   }
 
 body {
@@ -129,4 +132,13 @@ a:hover {
   align-items: center;
   background-color: rgb(44, 44, 44);
   margin: 10px;
+}
+
+.form-control {
+  padding: 2px;
+}
+
+.form-control input {
+  border-radius: 10px;
+  width: 250px;
 }

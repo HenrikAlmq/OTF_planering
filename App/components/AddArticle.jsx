@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 
 const AddArticle = ({ onAdd }) => {
     //Lokalt state
@@ -10,8 +10,8 @@ const AddArticle = ({ onAdd }) => {
     const [instock, setInStock] = useState(false)
 
     useEffect(() => {
-    
-    },)
+
+    })
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -20,8 +20,8 @@ const AddArticle = ({ onAdd }) => {
             alert('Artikelnummer är obligatoriskt')
             return
         }
-        
-        onAdd({article, articleDesc, barcode, volume, weight, instock})
+
+        onAdd({ article, articleDesc, barcode, volume, weight, instock })
         setArticle('')
         setArticleDesc('')
         setBarcode('')
@@ -29,33 +29,28 @@ const AddArticle = ({ onAdd }) => {
         setWeight('')
     }
 
-    
 
-  return (
-    <form className='add-form' onSubmit={onSubmit}>
-        <div className="form-control">
-            <label>Artikelnummer</label>
-            <input type="text" placeholder="Artikelnummer" value={article} onChange={(e) => setArticle(e.target.value)}/>
-        </div>
-        <div className="form-control">
-            <label>Artikelbeskrivning</label>
-            <input type="text" placeholder="Artikelbeskrivning" value={articleDesc} onChange={(e) => setArticleDesc(e.target.value)}/>
-        </div>
-        <div className="form-control">
-            <label>Streckkod</label>
-            <input type="text" placeholder="Streckkod" value={barcode} onChange={(e) => setBarcode(e.target.value)}/>
-        </div>
-        <div className="form-control">
-            <label>Volym</label>
-            <input type="text" placeholder="Volym" value={volume} onChange={(e) => setVolume(e.target.value)}/>
-        </div>
-        <div className="form-control">
-            <label>Vikt</label>
-            <input type="text" placeholder="Vikt" value={weight} onChange={(e) => setWeight(e.target.value)}/>
-        </div>
-        <input type="submit" value='Lägg till Artikel'/>
-    </form>
-  )
+
+    return (
+        <form className='add-form' onSubmit={onSubmit}>
+            <div className="form-control">
+                <input type="text" placeholder="Artikelnummer" value={article} onChange={(e) => setArticle(e.target.value)} />
+            </div>
+            <div className="form-control">
+                <input type="text" placeholder="Artikelbeskrivning" value={articleDesc} onChange={(e) => setArticleDesc(e.target.value)} />
+            </div>
+            <div className="form-control">
+                <input type="text" placeholder="Streckkod" value={barcode} onChange={(e) => setBarcode(e.target.value)} />
+            </div>
+            <div className="form-control">
+                <input type="text" placeholder="Volym" value={volume} onChange={(e) => setVolume(e.target.value)} />
+            </div>
+            <div className="form-control">
+                <input type="text" placeholder="Vikt" value={weight} onChange={(e) => setWeight(e.target.value)} />
+            </div>
+            <input type="submit" value='Lägg till Artikel' />
+        </form>
+    )
 }
 
 export default AddArticle
