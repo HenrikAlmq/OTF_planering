@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from "./Button"
 
 function Footer({Logout}) {
   const [details, setDetails] = useState({username: ""});
@@ -11,7 +12,7 @@ function Footer({Logout}) {
   return (
     <div className='footer'>
         <b>On the fly WMS</b>
-        <button onClick={UseLogout}>Logga ut</button>
+        <Button text="Logga ut" color="black" onClick={UseLogout}/>
     </div>
   )
 }
