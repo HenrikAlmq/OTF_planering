@@ -35,8 +35,8 @@ const Articles = () => {
 ])
 
 useEffect(() => {
-    
-})
+    console.log(articles)
+}, [articles])
 
 
 //Ta bort artikel
@@ -53,7 +53,7 @@ const addArticle = (article) => {
 }
 
   return (
-    <div>
+    <div className="container">
       <Header title='Artikelvy' />
       <AddArticle onAdd={addArticle} />
       {articles.length > 0 ? <ArticleList articles={articles} onDelete={deleteArticle}/> : 'Inga artiklar skapade'}

@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 const AddArticle = ({ onAdd }) => {
     //Lokalt state
@@ -9,6 +9,10 @@ const AddArticle = ({ onAdd }) => {
     const [weight, setWeight] = useState('')
     const [instock, setInStock] = useState(false)
 
+    useEffect(() => {
+    
+    },)
+
     const onSubmit = (e) => {
         e.preventDefault()
 
@@ -16,7 +20,7 @@ const AddArticle = ({ onAdd }) => {
             alert('Artikelnummer är obligatoriskt')
             return
         }
-
+        
         onAdd({article, articleDesc, barcode, volume, weight, instock})
         setArticle('')
         setArticleDesc('')
@@ -24,6 +28,8 @@ const AddArticle = ({ onAdd }) => {
         setVolume('')
         setWeight('')
     }
+
+    
 
   return (
     <form className='add-form' onSubmit={onSubmit}>
