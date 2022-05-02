@@ -12,7 +12,9 @@
     "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
-    "parcel": "^2.4.1"
+    "buffer": "^6.0.3",
+    "parcel": "^2.4.1",
+    "process": "^0.11.10"
   },
   "scripts": {
     "start": "parcel",

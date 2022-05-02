@@ -17,9 +17,6 @@ function App() {
         password: "admin123"
     }
 
-    useEffect(() => {
-        
-    })
 
     const [user, setUser] = useState({ username: "" }); //Anger data i state vid inloggningen med setUser.
     const [error, setError] = useState(""); //Fångar felmeddelande i setError

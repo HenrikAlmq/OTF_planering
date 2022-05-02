@@ -2,15 +2,18 @@ import Header from "./Header"
 import { ArticleList } from "./ArticleList"
 import { useState, useEffect } from 'react'
 import AddArticle from "./AddArticle"
+import axios from "axios"
+import { fetchArticlesAxios } from "../Adapters/ArticleAdapter"
+import { deleteArticleAPI } from "../Adapters/ArticleAdapter"
 
 const Articles = () => {
   const [articles, setArticles] = useState([])
 
 
-  //Hook som körs vid rendering (Component did mount)
+  //Hook som körs vid rendering (Component did mount) och körs endast om state [articles] har ändrats
   useEffect(() => {
     const getArticles = async () => {
-      const articlesFromServer = await fetchArticles();
+      const articlesFromServer = await fetchArticlesAxios();
       setArticles(articlesFromServer)
     }
 
@@ -18,42 +21,23 @@ const Articles = () => {
   }, [articles])
 
 
-  //Hämta produkter
-  const fetchArticles = async () => {
-    const response = await fetch('http://localhost:27585/api/Product')
-    const data = await response.json()
-    return data;
-  }
-
-
   //Ta bort artikel
   const deleteArticle = async (id) => {
-    await fetch(`http://localhost:27585/api/Product/${id}`, {
-      method: 'DELETE',
-    })
-
+    deleteArticleAPI(id);
     setArticles(articles.filter((article) => article.ProductId !== id))
   }
 
   //Lägg till artikel
   const addArticle = async (article) => {
-    console.log(article);
-    const response = await fetch('http://localhost:27585/api/Product/create', {
-      method: 'POST',
+    
+    axios.post('http://localhost:27585/api/Product/create', article, {
       headers: {
         'Content-type': 'application/json'
-      },
-      body: JSON.stringify(article)
+      }
+    }).then(res => {
+      setArticles([...articles, res.data])
     })
-    const data = await response.json()
 
-    setArticles([...articles, data])
-
-
-
-    // const ProductId = Math.floor(Math.random() * 1000) + 1
-    // const newArticle = { ProductId, ...article }
-    // setArticles([...articles, newArticle])
   }
 
   return (
