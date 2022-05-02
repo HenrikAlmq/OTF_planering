@@ -21,6 +21,20 @@ namespace OTF_backend.Models.Outbound.Products
             await _appDbContext.SaveChangesAsync();
         }
 
+        public async Task<Product> DeleteProduct(int productId)
+        {
+            var result = await _appDbContext.Products.FirstOrDefaultAsync(p => p.ProductId == productId);
+
+            if (result != null)
+            {
+                _appDbContext.Products.Remove(result);
+                await _appDbContext.SaveChangesAsync();
+                return result;
+            }
+
+            return null;
+        }
+
         public async Task<Product[]> GetAllProductsAsync()
         {
             IQueryable<Product> query = _appDbContext.Products;

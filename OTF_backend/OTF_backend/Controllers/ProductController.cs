@@ -84,5 +84,25 @@ namespace OTF_backend.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
         }
+        [HttpDelete("{productId:int}")]
+        public async Task<ActionResult<Product>> DeleteProduct(int productId)
+        {
+            try
+            {
+                var productToDelete = await _productRepository.GetProductAsync(productId);
+
+                if (productToDelete == null)
+                {
+                    return NotFound($"Produkt med ID: {productId} finns inte");
+                }
+
+                return await _productRepository.DeleteProduct(productId);
+            }
+            catch (Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Error deleting data");
+            }
+        }
     }
 }

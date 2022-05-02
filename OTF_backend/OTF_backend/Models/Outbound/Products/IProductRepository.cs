@@ -11,5 +11,6 @@ namespace OTF_backend.Models.Outbound
         Task<Product[]> GetAllProductsAsync();
         Task<Product> GetProductByTitleAsync(string articleNumber);
         void CreateProduct(Product product);
+        Task<Product> DeleteProduct(int productId);
     }
 }
