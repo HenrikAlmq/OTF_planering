@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 
 const AddArticle = ({ onAdd }) => {
     //Lokalt state
-    const [article, setArticle] = useState('')
-    const [articleDesc, setArticleDesc] = useState('')
+    const [articleNumber, setArticle] = useState('')
+    const [articleDescription, setArticleDesc] = useState('')
     const [barcode, setBarcode] = useState('')
     const [volume, setVolume] = useState('')
     const [weight, setWeight] = useState('')
@@ -16,12 +16,12 @@ const AddArticle = ({ onAdd }) => {
     const onSubmit = (e) => {
         e.preventDefault()
 
-        if (!article) {
+        if (!articleNumber) {
             alert('Artikelnummer är obligatoriskt')
             return
         }
 
-        onAdd({ article, articleDesc, barcode, volume, weight, instock })
+        onAdd({ articleNumber, articleDescription, barcode, volume, weight, instock })
         setArticle('')
         setArticleDesc('')
         setBarcode('')
@@ -34,10 +34,10 @@ const AddArticle = ({ onAdd }) => {
     return (
         <form className='add-form' onSubmit={onSubmit}>
             <div className="form-control">
-                <input type="text" placeholder="Artikelnummer" value={article} onChange={(e) => setArticle(e.target.value)} />
+                <input type="text" placeholder="Artikelnummer" value={articleNumber} onChange={(e) => setArticle(e.target.value)} />
             </div>
             <div className="form-control">
-                <input type="text" placeholder="Artikelbeskrivning" value={articleDesc} onChange={(e) => setArticleDesc(e.target.value)} />
+                <input type="text" placeholder="Artikelbeskrivning" value={articleDescription} onChange={(e) => setArticleDesc(e.target.value)} />
             </div>
             <div className="form-control">
                 <input type="text" placeholder="Streckkod" value={barcode} onChange={(e) => setBarcode(e.target.value)} />
