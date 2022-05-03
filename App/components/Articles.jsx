@@ -3,7 +3,7 @@ import { ArticleList } from "./ArticleList"
 import { useState, useEffect } from 'react'
 import AddArticle from "./AddArticle"
 import axios from "axios"
-import { fetchArticlesAxios } from "../Adapters/ArticleAdapter"
+import { getArticleAPI } from "../Adapters/ArticleAdapter"
 import { deleteArticleAPI } from "../Adapters/ArticleAdapter"
 
 const Articles = () => {
@@ -13,7 +13,7 @@ const Articles = () => {
   //Hook som körs vid rendering (Component did mount) och körs endast om state [articles] har ändrats
   useEffect(() => {
     const getArticles = async () => {
-      const articlesFromServer = await fetchArticlesAxios();
+      const articlesFromServer = await getArticleAPI();
       setArticles(articlesFromServer)
     }
 
