@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using OTF_backend.Models.Outbound;
+using OTF_backend.Models.Outbound.Deliveries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace OTF_backend.Models
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Delivery> Deliveries { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite(@"Data Source=Q:\Webbutvecklare.NET\Inlämning\OTF_planering\OTF_backend\OTF.db");

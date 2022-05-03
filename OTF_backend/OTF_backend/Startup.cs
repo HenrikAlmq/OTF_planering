@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OTF_backend.Models;
 using OTF_backend.Models.Outbound;
+using OTF_backend.Models.Outbound.Deliveries;
 using OTF_backend.Models.Outbound.Products;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,7 @@ namespace OTF_backend
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlite(@"Data Source=Q:\Webbutvecklare.NET\Inlämning\OTF_backend\OTF.db"));
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IDeliveryRepository, DeliveryRepository>();
 
             services.AddCors();
             services.AddControllers();

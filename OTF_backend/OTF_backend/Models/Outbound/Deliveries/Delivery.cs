@@ -13,5 +13,10 @@ namespace OTF_backend.Models.Outbound.Deliveries
         public string OrderId { get; set; }
         public string DeliveryAddress { get; set; }
         public int ZipCode { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
+        public int DeliveryStatusId { get; set; }
+        public int FreightServiceId { get; set; }
+
     }
 }
