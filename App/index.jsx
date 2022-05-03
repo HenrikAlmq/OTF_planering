@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import Deliveries from './Deliveries';
+import Deliveries from './Pages/Deliveries';
 import LoginForm from './components/LoginForm'
 import index from './index.css';
 import Articles from './components/Articles';

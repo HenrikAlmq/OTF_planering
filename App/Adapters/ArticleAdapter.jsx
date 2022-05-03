@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const fetchArticlesAxios = async () => {
+export const getArticleAPI = async () => {
     const { data } = await axios.get('http://localhost:27585/api/Product')
     return data;
 }

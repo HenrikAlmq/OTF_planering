@@ -9,10 +9,6 @@ const AddArticle = ({ onAdd }) => {
     const [weight, setWeight] = useState('')
     const [instock, setInStock] = useState(false)
 
-    useEffect(() => {
-
-    })
-
     const onSubmit = (e) => {
         e.preventDefault()
 
