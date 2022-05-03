@@ -11,3 +11,8 @@ export const deleteArticleAPI = async(id) => {
       })
 }
 
+export const getDeliveriesAPI = async() => {
+    const { data } = await axios.get('http://localhost:27585/api/Delivery')
+    return data;
+}
+
