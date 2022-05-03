@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 
 const AddDelivery = ({ onAdd }) => {
-    const [orderNumber, setOrderNumber] = useState('');
+    const [orderId, setOrderNumber] = useState('');
     const [deliveryAddress, setDeliveryAddress] = useState('');
     const [zipcode, setZipcode] = useState('');
     const [phoneNumber, setphoneNumber] = useState('');
@@ -13,12 +13,12 @@ const AddDelivery = ({ onAdd }) => {
     const onSubmit = (e) => {
         e.preventDefault(); //Ladda ej om sidan
 
-        if (!orderNumber) {
+        if (!orderId) {
             alert("Ordernummer är obligatoriskt");
             return
         }
 
-        onAdd({orderNumber, deliveryAddress, zipcode, phoneNumber, email, deliveryStatusId, freightServiceId})
+        onAdd({orderNumber: orderId, deliveryAddress, zipcode, phoneNumber, email, deliveryStatusId, freightServiceId})
         setOrderNumber('');
         setDeliveryAddress('');
         setZipcode('');
@@ -31,7 +31,7 @@ const AddDelivery = ({ onAdd }) => {
     return (
         <form className='add-form' onSubmit={onSubmit}>
             <div className="form-control">
-                <input type="text" placeholder="Ordernummer" value={orderNumber} onChange={(e) => setOrderNumber(e.target.value)} />
+                <input type="text" placeholder="Ordernummer" value={orderId} onChange={(e) => setOrderNumber(e.target.value)} />
             </div>
             <div className="form-control">
                 <input type="text" placeholder="Leveransadress" value={deliveryAddress} onChange={(e) => setDeliveryAddress(e.target.value)} />

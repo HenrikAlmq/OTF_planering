@@ -3,6 +3,7 @@ import Delivery from './Delivery'
 
 const DeliveryList = ({ deliveries }) => {
 
+    
   return (
     <>
         {deliveries.map((delivery, index) => (
