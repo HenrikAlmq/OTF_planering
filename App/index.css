@@ -150,7 +150,7 @@ a:hover {
 
 .input-check {
   background-color: #202020;
-  border-radius: 5px;
+  
   padding: 5px;
   cursor: pointer;
   width: 150px;
@@ -166,3 +166,15 @@ a:hover {
 .icons:hover {
   transform: scale(1.2);
 }
+
+#search-container{
+  display: flex;
+  justify-content: center;
+}
+
+#searchbar {
+  width: 350px;
+  border-radius: 10px;
+}
+
+

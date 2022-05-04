@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaArrowDown } from 'react-icons/fa'
+import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
 import { useState } from 'react'
 import DeliveryRows from './DeliveryRows'
 
@@ -13,7 +13,7 @@ const Delivery = ({ delivery }) => {
       
         <div className='form-check'>
           
-          <h3>Ordernummer: {delivery.orderId} <FaArrowDown className='icons' style={{cursor: 'pointer' }} /></h3>
+          <h3>Ordernummer: {delivery.orderId} {showOrder ? <FaArrowUp className='icons' style={{cursor: 'pointer' }} onClick={() => setShowOrder(false)}/> : <FaArrowDown className='icons' style={{cursor: 'pointer' }} onClick={() => setShowOrder(true)} /> }</h3>
           <p>Leveransadress: {delivery.deliveryAddress}</p>
           <p>Postnummer: {delivery.zipCode}</p>
           <p>Telefonnummer: {delivery.phoneNumber}</p>
