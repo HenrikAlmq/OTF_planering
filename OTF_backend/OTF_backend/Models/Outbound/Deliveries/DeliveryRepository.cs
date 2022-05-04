@@ -27,5 +27,13 @@ namespace OTF_backend.Models.Outbound.Deliveries
 
             return await query.ToArrayAsync();
         }
+
+        public async Task<Delivery> GetDeliveryByOrderId(string orderId)
+        {
+            IQueryable<Delivery> query = _appDbContext.Deliveries;
+            query = query.Where(d => d.OrderId == orderId);
+
+            return await query.FirstOrDefaultAsync();
+        }
     }
 }
