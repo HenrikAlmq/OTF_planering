@@ -9,7 +9,6 @@ namespace OTF_backend.Models.Outbound.Deliveries
     {
         void CreateDelivery(Delivery delivery);
         Task<Delivery[]> GetAllOrdersAsync();
-
         Task<Delivery> GetDeliveryByOrderId(string orderId);
     }
 }
