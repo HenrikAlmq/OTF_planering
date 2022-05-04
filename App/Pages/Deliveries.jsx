@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import DeliveryList from '../components/DeliveryList';
 import AddDelivery from '../components/AddDelivery';
 import { getDeliveriesAPI } from '../Adapters/ArticleAdapter';
+import axios from 'axios';
 
 const Deliveries = () => {
   
@@ -19,8 +20,15 @@ getDeliveries();
 }, [])
 
 const addOrder = (delivery) => {
-  console.log(delivery);
   
+  axios.post('http://localhost:27585/api/Delivery/create', delivery, {
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }).then(res => {
+      setDeliveries([...deliveries, res.data])
+      console.log(res.data)
+    })
 
 }
  

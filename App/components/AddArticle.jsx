@@ -44,7 +44,7 @@ const AddArticle = ({ onAdd }) => {
             <div className="form-control">
                 <input type="text" placeholder="Vikt" value={weight} onChange={(e) => setWeight(e.target.value)} />
             </div>
-            <input type="submit" value='Lägg till Artikel' />
+            <input className='input-check' type="submit" value='Lägg till Artikel' />
         </form>
     )
 }

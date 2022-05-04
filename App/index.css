@@ -127,11 +127,16 @@ a:hover {
 .form-check {
   border: 1px solid black;
   border-radius: 10px;
-  width: 500px;
+  width: 800px;
   padding: 10px;
   align-items: center;
   background-color: rgb(44, 44, 44);
   margin: 10px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
 }
 
 .form-control {
@@ -141,4 +146,23 @@ a:hover {
 .form-control input {
   border-radius: 10px;
   width: 250px;
+}
+
+.input-check {
+  background-color: #202020;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+}
+
+.form-check h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icons:hover {
+  transform: scale(1.2);
 }
