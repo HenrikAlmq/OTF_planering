@@ -27,7 +27,6 @@ const addOrder = (delivery) => {
       }
     }).then(res => {
       setDeliveries([...deliveries, res.data])
-      console.log(res.data)
     })
 
 }

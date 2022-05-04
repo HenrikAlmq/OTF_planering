@@ -5,14 +5,17 @@ import DeliveryRows from './DeliveryRows'
 
 const Delivery = ({ delivery }) => {
   const [showOrder, setShowOrder] = useState(false);
-  console.log(delivery)
+ 
+
+  const getDeliveryRows = () => {
+    
+  }
 
   return (
     <>
       <div className='form-container'>
       
         <div className='form-check'>
-          
           <h3>Ordernummer: {delivery.orderId} {showOrder ? <FaArrowUp className='icons' style={{cursor: 'pointer' }} onClick={() => setShowOrder(false)}/> : <FaArrowDown className='icons' style={{cursor: 'pointer' }} onClick={() => setShowOrder(true)} /> }</h3>
           <p>Leveransadress: {delivery.deliveryAddress}</p>
           <p>Postnummer: {delivery.zipCode}</p>
@@ -20,7 +23,7 @@ const Delivery = ({ delivery }) => {
           <p>Mejladress: {delivery.email}</p>
           <p>Status: {delivery.deliveryStatusId}</p>
           <p>Frakt: {delivery.freightServiceId}</p>
-          {showOrder && <DeliveryRows />}
+          {showOrder && <DeliveryRows delivery={delivery} />}
         </div>
       </div>
     </>
