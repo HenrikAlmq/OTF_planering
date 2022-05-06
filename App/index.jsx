@@ -18,18 +18,27 @@ function App() {
         password: "admin123"
     }
 
-
-    const [user, setUser] = useState({ username: "" }); //Anger data i state vid inloggningen med setUser.
+    const [user, setUser] = useState({ username: ""}); //Anger data i state vid inloggningen med setUser.
     const [error, setError] = useState(""); //Fångar felmeddelande i setError
 
+
+    useEffect(() => {
+        const getUser = localStorage.getItem("user");
+        
+
+        if (getUser != null) {
+            setUser({username: getUser})
+        }
+    }, [])
+
     const Login = (details) => {
-        console.log(details);
 
         if (details.username == adminUser.username && details.password == adminUser.password) {
             console.log("Inloggad");
             setUser({
                 username: details.username //anger username i State
             });
+            localStorage.setItem("user", details.username);
         } else {
             setError("Fel användaruppgifter")
         }
@@ -39,12 +48,14 @@ function App() {
         setUser({ username: details.username });
     }
 
+    console.log(user);
+    
     return (
         <div className='App'>
             {(user.username != "") ? (
                 <Router>
                     <div>
-                        <Navbar user={username}/>
+                        <Navbar user={user}/>
                         <Routes>
                             <Route path="/deliveries" element={<Deliveries />}></Route>
                             <Route path="/articles" element={<Articles />}></Route>
