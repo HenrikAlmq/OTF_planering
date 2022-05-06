@@ -1,18 +1,31 @@
 import React from 'react'
 import { getDeliveryRows } from '../Adapters/ArticleAdapter'
-import {useState} from 'react'
+import { useState, useEffect } from 'react'
+import DeliveryRowsData from './DeliveryRowsData'
+import { Link } from 'react-router-dom'
+import DeliveryDetails from './DeliveryDetails';
+
 
 const DeliveryRows = ({ delivery }) => {
-  const [deliveryRows, setDeliveryRows] = useState('');
-  console.log(delivery);
+  const [deliveryRows, setDeliveryRows] = useState([]);
+ 
 
-  const deliveryRowData = getDeliveryRows(delivery.deliveryId)
-  console.log(deliveryRowData);
+  useEffect(() => {
+    const deliveryRows = async () => {
+      const deliveryRowsFromServer = await getDeliveryRows(delivery.deliveryId);
+      setDeliveryRows(deliveryRowsFromServer)
+    }
+
+    deliveryRows();
+  }, [])
+
+
 
   return (
     <div>
-      <p>Artikelnummer:</p>
-      <p>Antal: 4</p>
+        <DeliveryRowsData deliveryRow={deliveryRows}/>
+        <br />
+        <p><b><Link to={`/deliveries/${delivery.deliveryId}`}>Orderinfo</Link></b></p>
     </div>
   )
 }

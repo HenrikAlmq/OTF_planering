@@ -18,7 +18,11 @@ export const getDeliveriesAPI = async() => {
 
 export  const getDeliveryRows = async(deliveryid) => {
     const { data } = await axios.get(`http://localhost:27585/api/DeliveryRow/${deliveryid}`)
-    console.log(data);
+    return data;
+}
+
+export  const getDeliveryAPI = async(deliveryid) => {
+    const { data } = await axios.get(`http://localhost:27585/api/Delivery/${deliveryid}`)
     return data;
 }
 

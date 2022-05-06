@@ -8,6 +8,7 @@ import Articles from './components/Articles';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route, Routes } from "react-router-dom";
 import Footer from './components/Footer';
+import DeliveryDetails from './components/DeliveryDetails';
 
 
 
@@ -47,6 +48,7 @@ function App() {
                         <Routes>
                             <Route path="/deliveries" element={<Deliveries />}></Route>
                             <Route path="/articles" element={<Articles />}></Route>
+                            <Route path='/deliveries/:id' element={<DeliveryDetails/>}></Route> 
                         </Routes>
                         <br />
                         <Footer Logout={Logout} />
