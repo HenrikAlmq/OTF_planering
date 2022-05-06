@@ -19,6 +19,21 @@ namespace OTF_backend.Controllers
             _deliveryRepository = deliveryRepository;
         }
 
+        [HttpGet("{deliveryId}")]
+        public async Task<ActionResult<Delivery>> Get(int deliveryId)
+        {
+            try
+            {
+                var results = await _deliveryRepository.GetDeliveryByDeliveryId(deliveryId);
+
+                return results;
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Database failure");
+            }
+        }
+
         [HttpGet]
         public async Task<ActionResult<Delivery[]>> Get()
         {
