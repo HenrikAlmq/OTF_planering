@@ -17,7 +17,7 @@ const AddDelivery = ({ onAdd }) => {
             alert("Ordernummer är obligatoriskt");
             return
         }
-        console.log(deliveryStatusId);
+        
         onAdd({ orderId, deliveryAddress, zipCode, phoneNumber, email, deliveryStatusId, freightServiceId})
         setOrderId('');
         setDeliveryAddress('');
