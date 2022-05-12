@@ -48,7 +48,7 @@ function App() {
         setUser({ username: details.username });
     }
 
-    console.log(user);
+    
     
     return (
         <div className='App'>

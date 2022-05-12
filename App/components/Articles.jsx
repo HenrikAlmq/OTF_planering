@@ -1,6 +1,6 @@
 import Header from "./Header"
 import { ArticleList } from "./ArticleList"
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import AddArticle from "./AddArticle"
 import axios from "axios"
 import { getArticleAPI } from "../Adapters/ArticleAdapter"
@@ -18,8 +18,8 @@ const Articles = () => {
     }
 
     getArticles();
-  }, [articles])
-
+  }, [])
+  
 
   //Ta bort artikel
   const deleteArticle = async (id) => {
