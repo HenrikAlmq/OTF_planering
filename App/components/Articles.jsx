@@ -5,6 +5,7 @@ import AddArticle from "./AddArticle"
 import axios from "axios"
 import { getArticleAPI } from "../Adapters/ArticleAdapter"
 import { deleteArticleAPI } from "../Adapters/ArticleAdapter"
+import Article from "./Article"
 
 const Articles = () => {
   const [articles, setArticles] = useState([])
@@ -44,7 +45,7 @@ const Articles = () => {
     <div className="container">
       <Header title='Artikelvy' />
       <AddArticle onAdd={addArticle} />
-      {articles.length > 0 ? <ArticleList articles={articles} onDelete={deleteArticle} /> : 'Inga artiklar skapade'}
+      {articles.length > 0 ? <ArticleList articles={articles} onDelete={deleteArticle} ArticlePage={Article} /> : 'Inga artiklar skapade'}
     </div>
   )
 }

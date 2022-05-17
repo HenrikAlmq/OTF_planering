@@ -1,4 +1,4 @@
-import './node_modules/jquery/dist/jquery.js'
+import $ from 'jquery'
 import { ApplicationBase } from './framework/application-base.mjs'
 import { ContactPage } from './pages/contact-page.mjs';
 import { BusinessPlan } from './pages/businessplan-page.mjs';

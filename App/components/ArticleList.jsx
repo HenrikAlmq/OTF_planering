@@ -1,12 +1,11 @@
-import Article from "./Article"
 import {useEffect} from 'react'
 
-export const ArticleList = ({ articles, onDelete }) => {
-  
+export const ArticleList = ({ articles, onDelete, ArticlePage }) => {
+   
   return (
     <>
         {articles.map((article, index) => (
-        <Article key={index} article={article} onDelete={onDelete}/>
+        <ArticlePage key={index} article={article} onDelete={onDelete}/>
         ))}
     </>
   )

@@ -1,7 +1,6 @@
 import React from 'react'
 
 const DeliveryRowsData = ({deliveryRow}) => {
-console.log(deliveryRow);
 
   return (
     <div>

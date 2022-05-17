@@ -55,7 +55,7 @@ function App() {
             {(user.username != "") ? (
                 <Router>
                     <div>
-                        <Navbar user={user}/>
+                        <Navbar user={user.username}/>
                         <Routes>
                             <Route path="/deliveries" element={<Deliveries />}></Route>
                             <Route path="/articles" element={<Articles />}></Route>

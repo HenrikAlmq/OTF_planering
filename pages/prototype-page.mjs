@@ -7,7 +7,7 @@ export class ProtoType extends BaseElement {
 
     getElementString() {
         return `
-        <div style="margin: 20px;"><h3><a target="_blank" href="http://127.0.0.1:5001/app.html">Prototyp</a></h3></div>
+        <div style="margin: 20px;"><h3><a target="_blank" href="app.html">Prototyp</a></h3></div>
         <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--3-col">
                 <h5><strong>Backend</strong></h5>

@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getDeliveryAPI } from '../Adapters/ArticleAdapter'
 import { getArticleAPI } from '../Adapters/ArticleAdapter'
-import DeliveryDetailArticle from './DeliveryDetailArticle'
+import DeliveryDetailRowArticle from './DeliveryDetailRowArticle'
+import { ArticleList  } from './ArticleList'
 
 const DeliveryDetails = () => {
     const [deliveryData, setDeliveryData] = useState('');
@@ -12,21 +13,21 @@ const DeliveryDetails = () => {
 
 
     useEffect(() => {
-        const getDeliveryById = async () => {
-            const deliveryDataFromServer = await getDeliveryAPI(params.id)
-            setDeliveryData(deliveryDataFromServer);
-        }
-
         const getArticles = async () => {
             const articlesFromServer = await getArticleAPI();
             setArticles(articlesFromServer);
+        }
+
+        const getDeliveryById = async () => {
+            const deliveryDataFromServer = await getDeliveryAPI(params.id)
+            setDeliveryData(deliveryDataFromServer);
         }
 
         getDeliveryById();
         getArticles();
     }, [])
 
-    
+
 
     return (
         <>
@@ -37,13 +38,11 @@ const DeliveryDetails = () => {
                 <p>Postnummer: {deliveryData.zipCode}</p>
                 <p>Email: {deliveryData.email}</p>
             </div>
+            <br />
             <div>
-                {articles.map((article, index) => {
-                    console.log(article.productId);
-                    <DeliveryDetailArticle key={index} value={article} />
-                })}
+                <ArticleList articles={articles} ArticlePage={DeliveryDetailRowArticle} />
             </div>
-            
+
         </>
     )
 }
