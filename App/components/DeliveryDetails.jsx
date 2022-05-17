@@ -4,13 +4,14 @@ import { useParams } from 'react-router-dom'
 import { getDeliveryAPI } from '../Adapters/ArticleAdapter'
 import { getArticleAPI } from '../Adapters/ArticleAdapter'
 import DeliveryDetailRowArticle from './DeliveryDetailRowArticle'
-import { ArticleList  } from './ArticleList'
+import { ArticleList } from './ArticleList'
+import { getDeliveryRowsAPI } from '../Adapters/DeliveryAdapter'
 
 const DeliveryDetails = () => {
     const [deliveryData, setDeliveryData] = useState('');
     const [articles, setArticles] = useState([]);
+    const [deliveryRows, setDeliveryRows] = useState('');
     const params = useParams(); //Hämtar ID från URL, kan sedan användas till att ex. skicka ett anrop mot backend med det ID:t
-
 
     useEffect(() => {
         const getArticles = async () => {
@@ -23,11 +24,17 @@ const DeliveryDetails = () => {
             setDeliveryData(deliveryDataFromServer);
         }
 
+        const getDeliveryRowsById = async () => {
+            const deliveryRowsFromServer = await getDeliveryRowsAPI(params.id);
+            setDeliveryRows(deliveryRowsFromServer)
+        }
+
+        getDeliveryRowsById();
         getDeliveryById();
         getArticles();
     }, [])
 
-
+console.log(deliveryRows);
 
     return (
         <>
@@ -42,7 +49,6 @@ const DeliveryDetails = () => {
             <div>
                 <ArticleList articles={articles} ArticlePage={DeliveryDetailRowArticle} deliveryData={deliveryData} />
             </div>
-
         </>
     )
 }

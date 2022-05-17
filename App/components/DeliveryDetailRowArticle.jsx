@@ -1,19 +1,42 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios';
+
 
 const DeliveryDetailRowArticle = ({ article, deliveryData }) => {
     const [pickedQuantity, setpickedQuantity] = useState(0);
     const [quantity, setQuantity] = useState('');
     const [picked, setPicked] = useState(false);
+    const [deliveryRows, setDeliveryRows] = useState('');
+
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(deliveryData.deliveryId, article.articleNumber ,article.productId, quantity, pickedQuantity, picked);
+
+        if (!quantity) {
+            alert("Antal är obligatoriskt");
+            return
+        }
+
+        const body = {DeliveryId: deliveryData.deliveryId, ProductId: article.productId, OriginalQuantity: quantity, PickedQuantity: pickedQuantity, Picked: picked, ArticleNumber: article.articleNumber }
+        
+        postDeliveryRow(body)
         setQuantity('');
     }
+
+    const postDeliveryRow = (deliveryRow) => {
+        axios.post('http://localhost:27585/api/DeliveryRow/create', deliveryRow, {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }).then(res => {
+            setDeliveryRows([...deliveryRows, res.data])
+        })
+    }
+    
     return (
         <>
-            <form onSubmit={onSubmit}>
+            <form className='form-deliveryRow' onSubmit={onSubmit}>
                 <table>
                     <tbody>
                         <tr>

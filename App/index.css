@@ -176,10 +176,27 @@ a:hover {
   border-radius: 10px;
 }
 
+table {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 3px;
+}
+
 td, th {
   border: 1px solid #dddddd;
+  border-radius: 5px;
   text-align: left;
   padding: 8px;
+}
+
+.input-dr {
+  color: white;
+  background-color: black;
+  padding: 2px;
+}
+
+.input-dr:hover {
+  cursor: pointer;
 }
 
 .input-number {
@@ -187,4 +204,7 @@ td, th {
   width: 100px
 }
 
+.form-deliveryRow {
+  padding: 5px;
+}
 
