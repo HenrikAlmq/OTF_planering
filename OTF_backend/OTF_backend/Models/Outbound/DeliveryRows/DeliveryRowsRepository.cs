@@ -15,9 +15,10 @@ namespace OTF_backend.Models.Outbound.DeliveryRows
             _appDbContext = appDbContext;
         }
 
-        public void CreateDeliveryRow(DeliveryRows deliveryRows)
+        public async void CreateDeliveryRow(DeliveryRows deliveryRows)
         {
-            throw new NotImplementedException();
+            await _appDbContext.DeliveryRows.AddAsync(deliveryRows);
+            await _appDbContext.SaveChangesAsync();
         }
 
         public async Task<DeliveryRows[]> GetDeliveryRowAsync(int deliveryId)

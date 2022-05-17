@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using OTF_backend.Models.Outbound.DeliveryRows;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,26 @@ namespace OTF_backend.Controllers
             catch (Exception)
             {
 
-                throw;
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
+            }
+        }
+
+        [HttpPost("create")]
+        public async Task<ActionResult<DeliveryRows>> Post(DeliveryRows deliveryrow)
+        {
+            try
+            {
+                _deliveryRowsRepository.CreateDeliveryRow(deliveryrow);
+
+                return Ok(new
+                {
+                    Orderrow = "Orderrad tillagd!"
+                });
+            }
+            catch (Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
         }
     }
