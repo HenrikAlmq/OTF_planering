@@ -40,7 +40,7 @@ const DeliveryDetails = () => {
             </div>
             <br />
             <div>
-                <ArticleList articles={articles} ArticlePage={DeliveryDetailRowArticle} />
+                <ArticleList articles={articles} ArticlePage={DeliveryDetailRowArticle} deliveryData={deliveryData} />
             </div>
 
         </>
