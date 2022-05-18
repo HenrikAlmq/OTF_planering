@@ -1,9 +1,9 @@
 import React from 'react'
 import { useEffect } from 'react'
+import { FaTimes } from 'react-icons/fa'
 
 
-const DeliveryRowsData = ({ article }) => {
-
+const DeliveryRowsData = ({ article, onDelete }) => {
   return (
     <table>
       <tbody>
@@ -12,6 +12,7 @@ const DeliveryRowsData = ({ article }) => {
           <th>Ursprungsantal</th>
           <th>Plockat antal</th>
           <th>Plockad</th>
+          <th>{<FaTimes style={{cursor: 'pointer'}} onClick={() => onDelete(article.deliveryRowId)}/>}</th>
         </tr>
         <tr>
           <td>{article.articleNumber}</td>

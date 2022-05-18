@@ -17,7 +17,7 @@ const Articles = () => {
       const articlesFromServer = await getArticleAPI();
       setArticles(articlesFromServer)
     }
-    
+    console.log("DidMount?")
     getArticles();
   }, [])
   
@@ -30,7 +30,6 @@ const Articles = () => {
 
   //Lägg till artikel
   const addArticle = async (article) => {
-    
     axios.post('http://localhost:27585/api/Product/create', article, {
       headers: {
         'Content-type': 'application/json'
@@ -38,7 +37,6 @@ const Articles = () => {
     }).then(res => {
       setArticles([...articles, res.data])
     })
-
   }
 
   return (

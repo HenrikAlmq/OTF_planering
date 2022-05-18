@@ -24,3 +24,9 @@ export const postDeliveryRow = async(deliveryRow) => {
         }
     })
 }
+
+export const deleteDeliveryRowAPI = async(id) => {
+    await axios(`http://localhost:27585/api/DeliveryRow/${id}`, {
+        method: 'DELETE',
+      })
+}

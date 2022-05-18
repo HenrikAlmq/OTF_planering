@@ -8,6 +8,7 @@ import { ArticleList } from './ArticleList'
 import { getDeliveryRowsAPI } from '../Adapters/DeliveryAdapter'
 import DeliveryRowsData from './DeliveryRowsData'
 import axios from 'axios'
+import { deleteDeliveryRowAPI } from '../Adapters/DeliveryAdapter'
 
 const DeliveryDetails = () => {
     const [deliveryData, setDeliveryData] = useState('');
@@ -48,6 +49,12 @@ const DeliveryDetails = () => {
         })
     }
 
+    const deleteDeliveryRow = (id) => {
+        alert("Säker på att du vill ta bort orderrad?");
+        deleteDeliveryRowAPI(id);
+        setDeliveryRows(deliveryRows.filter((deliveryRow) => deliveryRow.deliveryRowId !== id));
+    }
+
     return (
         <>
             <div className='orderInfo'>
@@ -66,7 +73,7 @@ const DeliveryDetails = () => {
                 </div>
                 <div>
                     <h2>Befintliga orderrader:</h2>
-                    {deliveryRows.length > 0 ? <ArticleList articles={deliveryRows} ArticlePage={DeliveryRowsData} /> : "Inga orderrader"}
+                    {deliveryRows.length > 0 ? <ArticleList articles={deliveryRows} ArticlePage={DeliveryRowsData} onDelete={deleteDeliveryRow} /> : "Inga orderrader"}
                 </div>
             </div>
         </>
