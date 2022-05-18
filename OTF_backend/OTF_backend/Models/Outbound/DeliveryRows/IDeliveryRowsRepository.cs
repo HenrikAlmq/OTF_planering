@@ -9,5 +9,7 @@ namespace OTF_backend.Models.Outbound.DeliveryRows
     {
         Task<DeliveryRows[]> GetDeliveryRowAsync(int deliveryId);
         void CreateDeliveryRow(DeliveryRows deliveryRows);
+        Task<DeliveryRows> GetDeliveryRowByDeliveryRowId(int deliveryRowId);
+        Task<DeliveryRows> DeleteDeliveryRow(int deliveryRowId);
     }
 }

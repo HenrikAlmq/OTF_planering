@@ -11,5 +11,6 @@ namespace OTF_backend.Models.Outbound.Deliveries
         Task<Delivery[]> GetAllOrdersAsync();
         Task<Delivery> GetDeliveryByOrderId(string orderId);
         Task<Delivery> GetDeliveryByDeliveryId(int deliveryId);
+        
     }
 }

@@ -21,12 +21,34 @@ namespace OTF_backend.Models.Outbound.DeliveryRows
             await _appDbContext.SaveChangesAsync();
         }
 
+        public async Task<DeliveryRows> DeleteDeliveryRow(int deliveryRowId)
+        {
+            var result = await _appDbContext.DeliveryRows.FirstOrDefaultAsync(dr => dr.DeliveryRowId == deliveryRowId);
+            
+            if (result != null)
+            {
+                _appDbContext.DeliveryRows.Remove(result);
+                await _appDbContext.SaveChangesAsync();
+                return result;
+            }
+
+            return null;
+        }
+
         public async Task<DeliveryRows[]> GetDeliveryRowAsync(int deliveryId)
         {
             IQueryable<DeliveryRows> query = _appDbContext.DeliveryRows;
             query = query.Where(dr => dr.DeliveryId == deliveryId);
 
             return await query.ToArrayAsync();
+        }
+
+        public async Task<DeliveryRows> GetDeliveryRowByDeliveryRowId(int deliveryRowId)
+        {
+            IQueryable<DeliveryRows> query = _appDbContext.DeliveryRows;
+            query = query.Where(dr => dr.DeliveryRowId == deliveryRowId);
+
+            return await query.FirstOrDefaultAsync();
         }
     }
 }
