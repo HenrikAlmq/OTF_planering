@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import DeliveryList from '../components/DeliveryList';
 import AddDelivery from '../components/AddDelivery';
 import { getDeliveriesAPI } from '../Adapters/ArticleAdapter';
+import Delivery from '../components/Delivery';
 import axios from 'axios';
 
 const Deliveries = () => {
@@ -30,13 +31,13 @@ const addOrder = (delivery) => {
     })
 
 }
- 
+ const filterArray = ['orderId', 'deliveryAddress']
    
   return (
     <div className='container'>
       <Header title='Ordervy' />
       <AddDelivery onAdd={addOrder}/>
-        <DeliveryList deliveries={deliveries} />
+        <DeliveryList data={deliveries} Comp={Delivery} placeholder={"Sök efter ordernummer..."} filter={filterArray} />
     </div>
   )
 }

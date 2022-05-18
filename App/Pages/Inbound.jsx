@@ -1,9 +1,10 @@
 import React from 'react'
+import Header from '../components/Header'
 
 const Inbound = () => {
   return (
-    <div>
-        <p>test</p>
+    <div className='container'>
+        <Header title={"Inleveransvy"} />
     </div>
   )
 }
