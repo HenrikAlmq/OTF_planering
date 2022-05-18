@@ -208,3 +208,16 @@ td, th {
   padding: 5px;
 }
 
+.orderdata {
+  display: flex;
+  justify-content: space-around;
+}
+
+.orderInfo {
+  border: 1px solid black;
+  width: 230px;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 270px;
+  margin-top: 20px;
+}

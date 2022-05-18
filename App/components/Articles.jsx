@@ -11,13 +11,13 @@ const Articles = () => {
   const [articles, setArticles] = useState([])
 
 
-  //Hook som körs vid rendering (Component did mount) och körs endast om state [articles] har ändrats
+  //Hook som körs vid rendering (Component did mount)
   useEffect(() => {
     const getArticles = async () => {
       const articlesFromServer = await getArticleAPI();
       setArticles(articlesFromServer)
     }
-
+    
     getArticles();
   }, [])
   

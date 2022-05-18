@@ -17,6 +17,12 @@ function Navbar({user}) {
                     <li>
                         <Link to="/deliveries">Orders</Link>
                     </li>
+                    <li>
+                        <Link to="/inbound">Inleverans</Link>
+                    </li>
+                    <li>
+                        <Link to="/Stock">Lager</Link>
+                    </li>
                 </ul>
                 <h2 className='h2nav'>Välkommen, {user.value}</h2>
             </div>

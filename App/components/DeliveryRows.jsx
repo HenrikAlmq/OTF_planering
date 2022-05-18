@@ -23,7 +23,6 @@ const DeliveryRows = ({ delivery }) => {
 
   return (
     <div>
-        <DeliveryRowsData deliveryRow={deliveryRows}/>
         <br />
         <p><b><Link to={`/deliveries/${delivery.deliveryId}`}>Orderinfo</Link></b></p>
     </div>

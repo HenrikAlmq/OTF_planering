@@ -3,11 +3,10 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 
 
-const DeliveryDetailRowArticle = ({ article, deliveryData }) => {
+const DeliveryDetailRowArticle = ({ article, deliveryData, onAdd }) => {
     const [pickedQuantity, setpickedQuantity] = useState(0);
     const [quantity, setQuantity] = useState('');
     const [picked, setPicked] = useState(false);
-    const [deliveryRows, setDeliveryRows] = useState('');
 
 
     const onSubmit = (e) => {
@@ -20,19 +19,11 @@ const DeliveryDetailRowArticle = ({ article, deliveryData }) => {
 
         const body = {DeliveryId: deliveryData.deliveryId, ProductId: article.productId, OriginalQuantity: quantity, PickedQuantity: pickedQuantity, Picked: picked, ArticleNumber: article.articleNumber }
         
-        postDeliveryRow(body)
+        onAdd(body);
         setQuantity('');
     }
 
-    const postDeliveryRow = (deliveryRow) => {
-        axios.post('http://localhost:27585/api/DeliveryRow/create', deliveryRow, {
-            headers: {
-                'Content-type': 'application/json'
-            }
-        }).then(res => {
-            setDeliveryRows([...deliveryRows, res.data])
-        })
-    }
+    
     
     return (
         <>
@@ -52,7 +43,7 @@ const DeliveryDetailRowArticle = ({ article, deliveryData }) => {
                             <td>{article.weight}</td>
                             <td>{article.volume}</td>
                             <td>
-                            <input className='input-number' type="number" placeholder='antal' onChange={(e) => setQuantity(e.target.value)} />
+                            <input className='input-number' type="number" placeholder='Antal' onChange={(e) => setQuantity(e.target.value)} />
                             <input className='input-dr' type="submit" value="Lägg till" />
                             </td>
                         </tr>

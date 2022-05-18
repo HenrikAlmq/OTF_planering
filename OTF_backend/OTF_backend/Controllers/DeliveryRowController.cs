@@ -43,7 +43,12 @@ namespace OTF_backend.Controllers
 
                 return Ok(new
                 {
-                    Orderrow = "Orderrad tillagd!"
+                    DeliveryId = deliveryrow.DeliveryId,
+                    ProductId = deliveryrow.ProductId,
+                    ArticleNumber = deliveryrow.ArticleNumber,
+                    OriginalQuantity = deliveryrow.OriginalQuantity,
+                    PickedQuantity = deliveryrow.PickedQuantity,
+                    Picked = false
                 });
             }
             catch (Exception)

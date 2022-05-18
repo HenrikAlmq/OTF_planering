@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BaseUrl = `http://localhost:27585/api/`
+const BaseUrl = "http://localhost:27585/api/"
 
 export const getArticleAPI = async () => {
     const { data } = await axios.get(BaseUrl + "product")

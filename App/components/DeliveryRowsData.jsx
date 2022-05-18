@@ -1,13 +1,26 @@
 import React from 'react'
+import { useEffect } from 'react'
 
-const DeliveryRowsData = ({deliveryRow}) => {
+
+const DeliveryRowsData = ({ article }) => {
 
   return (
-    <div>
-        <p>Artikelnummer: </p>
-        <p>Orderrad: </p>
-        <p>Kvantiet: </p>
-    </div>
+    <table>
+      <tbody>
+        <tr>
+          <th>Artikelnummer</th>
+          <th>Ursprungsantal</th>
+          <th>Plockat antal</th>
+          <th>Plockad</th>
+        </tr>
+        <tr>
+          <td>{article.articleNumber}</td>
+          <td>{article.originalQuantity}</td>
+          <td>{article.pickedQuantity}</td>
+          <td>{article.picked ? "Ja" : "Nej"}</td>
+        </tr>
+      </tbody>
+    </table>
   )
 }
 
