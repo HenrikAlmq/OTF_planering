@@ -1,0 +1,8 @@
+import axios from "axios";
+
+const BaseUrl = "http://localhost:27585/api/"
+
+export const getIncomingDeliveriesAPI = async() => {
+    const { data } = await axios.get('http://localhost:27585/api/IncomingDelivery')
+    return data;
+}

@@ -31,13 +31,13 @@ const addOrder = (delivery) => {
     })
 
 }
- const filterArray = ['orderId', 'deliveryAddress']
+
    
   return (
     <div className='container'>
       <Header title='Ordervy' />
       <AddDelivery onAdd={addOrder}/>
-        <DeliveryList data={deliveries} Comp={Delivery} placeholder={"Sök efter ordernummer..."} filter={filterArray} />
+        <DeliveryList data={deliveries} Comp={Delivery} placeholder={"Sök efter ordernummer..."} filter={"orderId"} />
     </div>
   )
 }
