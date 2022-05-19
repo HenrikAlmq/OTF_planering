@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState } from 'react'
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
+import IncomingDeliveryRows from './IncomingDeliveryRows'
 
 const IncomingDelivery = ({delivery}) => {
     const [showOrder, setShowOrder] = useState(false);
@@ -15,7 +16,7 @@ const IncomingDelivery = ({delivery}) => {
             <p>Leveransadress: {delivery.deliveryAddress}</p>
             <p>Telefonnummer: {delivery.phoneNumber}</p>
             <p>Mejladress: {delivery.email}</p>
-            {showOrder && <IncomingDeliveryRows IncomingDelivery={IncomingDelivery} />}
+            {showOrder && <IncomingDeliveryRows delivery={delivery} />}
           </div>
         </div>
       </>

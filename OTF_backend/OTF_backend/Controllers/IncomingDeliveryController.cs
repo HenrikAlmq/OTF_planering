@@ -34,5 +34,50 @@ namespace OTF_backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Database failure");
             }
         }
+
+        [HttpGet("{IncomingDeliveryId}")]
+        public async Task<ActionResult<IncomingDelivery>> Get(int IncomingDeliveryId)
+        {
+            try
+            {
+                var results = await _incomingDeliveryRepository.GetIncomingDeliveryByIdAsync(IncomingDeliveryId);
+
+                return results;
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Database failure");
+            }
+        }
+
+        [HttpPost("create")]
+        public async Task<ActionResult<IncomingDelivery>> Create(IncomingDelivery incomingDelivery)
+        {
+            try
+            {
+                var existing = await _incomingDeliveryRepository.GetIncomingDeliveryByOrderIdAsync(incomingDelivery.PurchaseOrderId);
+
+                if (existing != null)
+                {
+                    return NotFound($"Order med PO-nummer:{incomingDelivery.PurchaseOrderId} existerar redan");
+                }
+
+                _incomingDeliveryRepository.CreateIncomingDelivery(incomingDelivery);
+
+                return Ok(new
+                {
+                    PurchaseOrderId = incomingDelivery.PurchaseOrderId,
+                    DeliveryAddress = incomingDelivery.DeliveryAddress,
+                    PhoneNumber = incomingDelivery.PhoneNumber,
+                    Email = incomingDelivery.Email
+                });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

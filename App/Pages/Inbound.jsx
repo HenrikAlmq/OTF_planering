@@ -22,7 +22,7 @@ const Inbound = () => {
   return (
     <div className='container'>
         <Header title={"Inleveransvy"} />
-        <DeliveryList data={incomingDeliveries} Comp={IncomingDelivery} placeholder={"Sök efter inköpsordernummer"} filter={"purchaseOrderId"} />
+        <DeliveryList data={incomingDeliveries} Comp={IncomingDelivery} placeholder={"Sök efter inköpsordernummer..."} filter={"purchaseOrderId"} />
     </div>
   )
 }

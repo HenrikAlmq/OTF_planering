@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route, Routes } from "react-router-dom
 import Footer from './components/Footer';
 import DeliveryDetails from './components/DeliveryDetails';
 import Inbound from './Pages/Inbound';
+import IncomingDeliveryDetails from './components/Inbound/IncomingDeliveryDetails';
 
 
 
@@ -62,6 +63,7 @@ function App() {
                             <Route path="/articles" element={<Articles />}></Route>
                             <Route path="/inbound" element={<Inbound />}></Route>
                             <Route path='/deliveries/:id' element={<DeliveryDetails/>}></Route> 
+                            <Route path='/inbound/:id' element={<IncomingDeliveryDetails/>}></Route> 
                         </Routes>
                         <br />
                         <Footer Logout={Logout} />
