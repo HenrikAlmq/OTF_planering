@@ -9,6 +9,7 @@ using OTF_backend.Models;
 using OTF_backend.Models.Outbound;
 using OTF_backend.Models.Outbound.Deliveries;
 using OTF_backend.Models.Outbound.DeliveryRows;
+using OTF_backend.Models.Outbound.IncomingDelivery;
 using OTF_backend.Models.Outbound.Products;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,7 @@ namespace OTF_backend
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IDeliveryRepository, DeliveryRepository>();
             services.AddScoped<IDeliveryRowsRepository, DeliveryRowsRepository>();
+            services.AddScoped<IIncomingDeliveryRepository, IncomingDeliveryRepository>();
 
             services.AddCors();
             services.AddControllers();
