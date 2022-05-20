@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace OTF_backend.Models.Outbound.IncomingDeliveryRows
 {
-    public class IncomingDeliveryRowsRepositorycs : IIncomingDeliveryRowsRepository
+    public class IncomingDeliveryRowsRepository : IIncomingDeliveryRowsRepository
     {
         private readonly AppDbContext _appDbContext;
-        public IncomingDeliveryRowsRepositorycs(AppDbContext appDbContext)
+        public IncomingDeliveryRowsRepository(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
