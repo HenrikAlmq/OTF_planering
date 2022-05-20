@@ -4,6 +4,7 @@ import { FaTimes } from 'react-icons/fa'
 
 
 const DeliveryRowsData = ({ article, onDelete }) => {
+  console.log(article);
   return (
     <table>
       <tbody>

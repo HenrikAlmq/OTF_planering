@@ -5,6 +5,8 @@ import IncomingDelivery from '../components/Inbound/IncomingDelivery'
 import { useState, useEffect } from 'react'
 import { getIncomingDeliveriesAPI } from '../Adapters/IncomingDeliveryAdapter'
 import AddIncomingDelivery from '../components/Inbound/AddIncomingDelivery'
+import AddDelivery from '../components/AddDelivery'
+import axios from 'axios'
 
 const Inbound = () => {
   const [incomingDeliveries, setIncomingDeliveries] = useState([]);
@@ -18,8 +20,14 @@ const Inbound = () => {
     getIncomingDeliveries();
   }, [])
 
-  const postIncomingDelivery = (incomingDelivery) => {
-    console.log(incomingDelivery);
+  const test = (incomingDelivery) => {
+    axios.post('http://localhost:27585/api/IncomingDelivery/create', incomingDelivery, {
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }).then(res => {
+      setIncomingDeliveries([...incomingDeliveries, res.data])
+    })
   }
 
 
@@ -27,7 +35,7 @@ const Inbound = () => {
   return (
     <div className='container'>
       <Header title={"Inleveransvy"} />
-      <AddIncomingDelivery onAdd={postIncomingDelivery} />
+      <AddIncomingDelivery onAdd={test} />
         <DeliveryList data={incomingDeliveries} Comp={IncomingDelivery} placeholder={"Sök efter inköpsordernummer..."} filter={"purchaseOrderId"} />
         
     </div>

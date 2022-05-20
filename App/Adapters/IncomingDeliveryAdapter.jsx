@@ -6,3 +6,13 @@ export const getIncomingDeliveriesAPI = async() => {
     const { data } = await axios.get('http://localhost:27585/api/IncomingDelivery')
     return data;
 }
+
+export const getIncomingDeliveryByIdAPI = async(incomingDeliveryId) => {
+    const { data } = await axios.get(`http://localhost:27585/api/IncomingDelivery/${incomingDeliveryId}`)
+    return data;
+}
+
+export const getIncomingDeliveryRowsAPI = async(incomingDeliveryId) => {
+    const { data } = await axios.get(`http://localhost:27585/api/IncomingDeliveryRow/${incomingDeliveryId}`)
+    return data;
+}

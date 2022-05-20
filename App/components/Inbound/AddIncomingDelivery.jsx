@@ -8,20 +8,23 @@ const AddIncomingDelivery = ({ onAdd }) => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [email, setEmail] = useState('');
 
-    const onSubmit = () => {
-        e.preventDefault();
+    const onSubmit = (e) => {
+        e.preventDefault(); //Ladda ej om sidan
 
         if (!purchaseOrderId) {
-            alert("Inköpsnummer är obligatoriskt")
+            alert("Inköpsordernummer är obligatoriskt");
             return
         }
-
-        onAdd({purchaseOrderId, deliveryAddress, phoneNumber, email})
+        
+        onAdd({ purchaseOrderId, deliveryAddress, phoneNumber, email})
         setPurchaseOrderId('');
         setDeliveryAddress('');
         setPhoneNumber('');
         setEmail('');
+
+
     }
+    
 
   return (
     <>

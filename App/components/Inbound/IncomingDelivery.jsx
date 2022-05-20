@@ -6,7 +6,6 @@ import IncomingDeliveryRows from './IncomingDeliveryRows'
 
 const IncomingDelivery = ({delivery}) => {
     const [showOrder, setShowOrder] = useState(false);
-    console.log(delivery)
   
     return (
       <>
