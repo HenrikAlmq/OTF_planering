@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import IncomingDelivery from '../components/Inbound/IncomingDelivery'
 import { useState, useEffect } from 'react'
 import { getIncomingDeliveriesAPI } from '../Adapters/IncomingDeliveryAdapter'
+import AddIncomingDelivery from '../components/Inbound/AddIncomingDelivery'
 
 const Inbound = () => {
   const [incomingDeliveries, setIncomingDeliveries] = useState([]);
@@ -17,12 +18,18 @@ const Inbound = () => {
     getIncomingDeliveries();
   }, [])
 
-  console.log(incomingDeliveries)
+  const postIncomingDelivery = (incomingDelivery) => {
+    console.log(incomingDelivery);
+  }
+
+
 
   return (
     <div className='container'>
-        <Header title={"Inleveransvy"} />
+      <Header title={"Inleveransvy"} />
+      <AddIncomingDelivery onAdd={postIncomingDelivery} />
         <DeliveryList data={incomingDeliveries} Comp={IncomingDelivery} placeholder={"Sök efter inköpsordernummer..."} filter={"purchaseOrderId"} />
+        
     </div>
   )
 }
