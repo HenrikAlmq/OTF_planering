@@ -204,6 +204,10 @@ td, th {
   width: 100px
 }
 
+.input-number-incoming {
+  color: black;
+}
+
 .form-deliveryRow {
   padding: 5px;
 }
@@ -233,4 +237,26 @@ td, th {
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
+}
+
+.suggestion-div {
+  cursor: pointer;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  margin: 4px;
+  padding: 4px;
+}
+
+.suggestion-div:hover {
+  background-color: gray;
+}
+
+.form-incoming {
+  justify-content: baseline !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding-top: 0px !important;
+  list-style: none !important;
+  display: list-item
 }
