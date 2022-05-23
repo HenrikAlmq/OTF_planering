@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 import DeliveryDetails from './components/DeliveryDetails';
 import Inbound from './Pages/Inbound';
 import IncomingDeliveryDetails from './components/Inbound/IncomingDeliveryDetails';
-
+import {useContext, createContext } from 'react';
 
 
 function App() {
@@ -48,6 +48,7 @@ function App() {
 
     const Logout = (details) => {
         setUser({ username: details.username });
+        localStorage.clear();
     }
 
     
