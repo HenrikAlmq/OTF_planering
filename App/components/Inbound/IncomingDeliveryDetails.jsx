@@ -8,6 +8,7 @@ import axios from 'axios'
 import { ArticleList } from '../ArticleList'
 import IncomingDeliveryRowDetail from './IncomingDeliveryRowDetail'
 import IncomingDeliveryRowsData from './IncomingDeliveryRowsData'
+import { deleteIncomingDeliveryRowAPI } from '../../Adapters/IncomingDeliveryAdapter'
 
 const IncomingDeliveryDetails = () => {
   const [articles, setArticles] = useState([]);
@@ -48,10 +49,11 @@ const IncomingDeliveryDetails = () => {
   }
 
   const deleteIncomingDeliveryRow = (id) => {
-    console.log(id);
+    alert("Säker på att du vill ta bort inköpsorderrad?");
+    deleteIncomingDeliveryRowAPI(id);
+    setIncomingDeliveryRows(incomingDeliveryRows.filter((incomingDeliveryRow) => incomingDeliveryRow.incomingDeliveryRowId !== id));
   } 
 
-  console.log()
   return (
     <>
     <div className='orderInfo'>

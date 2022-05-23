@@ -16,3 +16,9 @@ export const getIncomingDeliveryRowsAPI = async(incomingDeliveryId) => {
     const { data } = await axios.get(`http://localhost:27585/api/IncomingDeliveryRow/${incomingDeliveryId}`)
     return data;
 }
+
+export const deleteIncomingDeliveryRowAPI = async(id) => {
+    await axios(`${BaseUrl}IncomingDeliveryRow/${id}`, {
+        method: 'DELETE',
+      })
+}
