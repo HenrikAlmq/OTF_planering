@@ -48,5 +48,16 @@ namespace OTF_backend.Models.Outbound.IncomingDeliveryRows
 
             return await query.ToArrayAsync();
         }
+
+        public void UpdateIncomingDeliveryRow(int incomingDeliveryRowId, IncomingDeliveryRows incomingDeliveryRows)
+        {
+            var existing = _appDbContext.IncomingDeliveryRows.FirstOrDefault(id => id.IncomingDeliveryRowId == incomingDeliveryRowId);
+
+            existing.RecievedAmount = incomingDeliveryRows.RecievedAmount;
+            existing.Handled = incomingDeliveryRows.Handled;
+
+            _appDbContext.IncomingDeliveryRows.Update(existing);
+            _appDbContext.SaveChanges();
+        }
     }
 }

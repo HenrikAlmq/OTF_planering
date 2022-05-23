@@ -60,6 +60,30 @@ namespace OTF_backend.Controllers
             }
         }
 
+        [HttpPut("{incomingDeliveryRowId}")]
+        public async Task<ActionResult<IncomingDeliveryRows>> Put(int incomingDeliveryRowId, IncomingDeliveryRows incomingDeliveryRows)
+        {
+            try
+            {
+                var results = await _incomingDeliveryRowsRepository.GetIncomingDeliveryRow(incomingDeliveryRowId);
+                if (results == null) return NotFound();
+
+                _incomingDeliveryRowsRepository.UpdateIncomingDeliveryRow(incomingDeliveryRowId, incomingDeliveryRows);
+
+                return Ok(new
+                {
+                    IncomingDeliveryRowId = incomingDeliveryRows.IncomingDeliveryRowId,
+                    RecievedAmount = incomingDeliveryRows.RecievedAmount,
+                    Handled = incomingDeliveryRows.Handled
+                });
+            }
+            catch (Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
+            }
+        }
+
         [HttpDelete("{incomingDeliveryRowId:int}")]
         public async Task<ActionResult<IncomingDeliveryRows>> DeleteIncomingDeliveryRow(int incomingDeliveryRowId)
         {
