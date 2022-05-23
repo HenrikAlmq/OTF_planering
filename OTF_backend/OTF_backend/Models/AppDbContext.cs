@@ -5,6 +5,7 @@ using OTF_backend.Models.Outbound.Deliveries;
 using OTF_backend.Models.Outbound.DeliveryRows;
 using OTF_backend.Models.Outbound.IncomingDelivery;
 using OTF_backend.Models.Outbound.IncomingDeliveryRows;
+using OTF_backend.Models.Stock;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace OTF_backend.Models
         public DbSet<DeliveryRows> DeliveryRows { get; set; }
         public DbSet<IncomingDelivery> IncomingDeliveries { get; set; }
         public DbSet<IncomingDeliveryRows> IncomingDeliveryRows { get; set; }
+        public DbSet<StockLocation> StockLocations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite(@"Data Source=Q:\Webbutvecklare.NET\Inlämning\OTF_planering\OTF_backend\OTF.db");
