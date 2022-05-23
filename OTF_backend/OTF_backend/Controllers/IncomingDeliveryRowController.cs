@@ -56,7 +56,28 @@ namespace OTF_backend.Controllers
             catch (Exception)
             {
 
-                throw;
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
+            }
+        }
+
+        [HttpDelete("{incomingDeliveryRowId:int}")]
+        public async Task<ActionResult<IncomingDeliveryRows>> DeleteIncomingDeliveryRow(int incomingDeliveryRowId)
+        {
+            try
+            {
+                var incomingDeliveryRowToDelete = await _incomingDeliveryRowsRepository.GetIncomingDeliveryRowsById(incomingDeliveryRowId);
+
+                if (incomingDeliveryRowToDelete == null)
+                {
+                    return NotFound($"Inköpsorderrad med ID: {incomingDeliveryRowId} finns inte");
+                }
+
+                return await _incomingDeliveryRowsRepository.DeleteIncomingDeliveryRow(incomingDeliveryRowId);
+            }
+            catch (Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Error deleting data");
             }
         }
     }
