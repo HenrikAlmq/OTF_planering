@@ -13,6 +13,7 @@ import Inbound from './Pages/Inbound';
 import IncomingDeliveryDetails from './components/Inbound/IncomingDeliveryDetails';
 import {useContext, createContext } from 'react';
 
+export const UserContext = createContext('Unknown');
 
 function App() {
     const adminUser = {
@@ -41,6 +42,7 @@ function App() {
                 username: details.username //anger username i State
             });
             localStorage.setItem("user", details.username);
+            const userName = localStorage.getItem("user");
         } else {
             setError("Fel användaruppgifter")
         }
@@ -54,11 +56,13 @@ function App() {
     
     
     return (
+        
         <div className='App'>
             {(user.username != "") ? (
                 <Router>
                     <div>
-                        <Navbar user={user.username}/>
+                        <UserContext.Provider value={localStorage.getItem("user")} >
+                        <Navbar />
                         <Routes>
                             <Route path="/deliveries" element={<Deliveries />}></Route>
                             <Route path="/articles" element={<Articles />}></Route>
@@ -66,6 +70,7 @@ function App() {
                             <Route path='/deliveries/:id' element={<DeliveryDetails/>}></Route> 
                             <Route path='/inbound/:id' element={<IncomingDeliveryDetails/>}></Route> 
                         </Routes>
+                        </UserContext.Provider>
                         <br />
                         <Footer Logout={Logout} />
                     </div>
