@@ -2,7 +2,7 @@ import React from 'react'
 import { FaTimes } from 'react-icons/fa'
 
 const IncomingDeliveryRowsData = ({ article, onDelete }) => {
-    console.log(article)
+    
   return (
     <table>
       <tbody>

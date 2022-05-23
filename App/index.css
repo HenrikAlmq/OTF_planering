@@ -221,3 +221,16 @@ td, th {
   margin-left: 270px;
   margin-top: 20px;
 }
+
+.handle-incoming-rows-container {
+  display: flex;
+  width: auto;
+  max-width: 800px;
+}
+
+.handle-incoming-rows {
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}

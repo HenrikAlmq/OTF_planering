@@ -9,6 +9,7 @@ import { ArticleList } from '../ArticleList'
 import IncomingDeliveryRowDetail from './IncomingDeliveryRowDetail'
 import IncomingDeliveryRowsData from './IncomingDeliveryRowsData'
 import { deleteIncomingDeliveryRowAPI } from '../../Adapters/IncomingDeliveryAdapter'
+import { Link } from 'react-router-dom'
 
 const IncomingDeliveryDetails = () => {
   const [articles, setArticles] = useState([]);
@@ -62,6 +63,8 @@ const IncomingDeliveryDetails = () => {
         <p>Adress: {incomingDeliveryData.deliveryAddress}</p>
         <p>Telefonnummer: {incomingDeliveryData.phoneNumber}</p>
         <p>Email: {incomingDeliveryData.email}</p> 
+        <br />
+    <p><b><Link to={`/inbound/handle/${incomingDeliveryData.incomingDeliveryId}`}>Hantera inleverans</Link></b></p>
     </div>
     <br />
     <div className='orderdata'>
@@ -74,6 +77,7 @@ const IncomingDeliveryDetails = () => {
             {incomingDeliveryRows.length > 0 ? <ArticleList articles={incomingDeliveryRows} ArticlePage={IncomingDeliveryRowsData} onDelete={deleteIncomingDeliveryRow} /> : 'Inga inköpsorderrader'}
         </div>
     </div>
+    
 </>
   )
 }
