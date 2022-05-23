@@ -7,6 +7,6 @@ namespace OTF_backend.Models.Stock
 {
     public interface IStockLocationRepository
     {
-
+        Task<StockLocation[]> GetAllStockLocations();
     }
 }

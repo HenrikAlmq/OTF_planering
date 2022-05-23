@@ -12,6 +12,7 @@ using OTF_backend.Models.Outbound.DeliveryRows;
 using OTF_backend.Models.Outbound.IncomingDelivery;
 using OTF_backend.Models.Outbound.IncomingDeliveryRows;
 using OTF_backend.Models.Outbound.Products;
+using OTF_backend.Models.Stock;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,7 @@ namespace OTF_backend
             services.AddScoped<IDeliveryRowsRepository, DeliveryRowsRepository>();
             services.AddScoped<IIncomingDeliveryRepository, IncomingDeliveryRepository>();
             services.AddScoped<IIncomingDeliveryRowsRepository, IncomingDeliveryRowsRepository>();
+            services.AddScoped<IStockLocationRepository, StockLocationRepository>();
 
             services.AddCors();
             services.AddControllers();
