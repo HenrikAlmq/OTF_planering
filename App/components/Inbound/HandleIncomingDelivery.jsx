@@ -9,6 +9,7 @@ import axios from 'axios'
 const HandleIncomingDelivery = () => {
     const params = useParams();
     const [incomingDeliveryRows, setIncomingDeliveryRows] = useState([]);
+    const [stockPos, setStockPos] = useState([]);
 
 
     useEffect(() => {
@@ -22,20 +23,26 @@ const HandleIncomingDelivery = () => {
 
 
     const putIncomingDeliveryRow = (incomingRow) => {
-        console.log(incomingRow)
+        
         axios.put(`http://localhost:27585/api/IncomingDeliveryRow/${incomingRow.IncomingDeliveryRowId}`, incomingRow, {
             headers: {
                 'Content-type': 'application/json'
             }
         }).then(res => {
-            setIncomingDeliveryRows([...incomingDeliveryRows, res.data])
+            alert("Inlevererad")
         })
     }
 
     const postStockPositionLog = (stockPosition) => {
-        console.log(stockPosition)
+        axios.post(`http://localhost:27585/api/ProductStockPosition/create`, stockPosition, {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }).then(res => {
+            setStockPos([...stockPos, res.data])
+        })
     }
-
+    console.log(incomingDeliveryRows);
 
     return (
         <div>

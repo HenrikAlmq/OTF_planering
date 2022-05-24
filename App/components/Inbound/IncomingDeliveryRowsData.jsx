@@ -11,7 +11,7 @@ const IncomingDeliveryRowsData = ({ article, onDelete }) => {
           <th>Beställt antal</th>
           <th>Mottaget antal</th>
           <th>Hanterad</th>
-          <th>{<FaTimes style={{cursor: 'pointer'}} onClick={() => onDelete(article.incomingDeliveryRowId)}/>}</th>
+          <th>{<FaTimes style={{cursor: 'pointer'}} onClick={() => onDelete(article.handled, article.incomingDeliveryRowId)}/>}</th>
         </tr>
         <tr>
           <td>{article.articleNumber}</td>

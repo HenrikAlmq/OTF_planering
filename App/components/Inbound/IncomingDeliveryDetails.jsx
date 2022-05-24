@@ -45,40 +45,44 @@ const IncomingDeliveryDetails = () => {
         'Content-type': 'application/json'
       }
     }).then(res => {
-        setIncomingDeliveryRows([...incomingDeliveryRows, res.data])
+      setIncomingDeliveryRows([...incomingDeliveryRows, res.data])
     })
   }
 
-  const deleteIncomingDeliveryRow = (id) => {
+  const deleteIncomingDeliveryRow = (handled, id) => {
+    if(handled) {
+      alert("Går ej ta bort en rad som är hanterad");
+      return;
+    }
     alert("Säker på att du vill ta bort inköpsorderrad?");
     deleteIncomingDeliveryRowAPI(id);
     setIncomingDeliveryRows(incomingDeliveryRows.filter((incomingDeliveryRow) => incomingDeliveryRow.incomingDeliveryRowId !== id));
-  } 
+  }
 
   return (
     <>
-    <div className='orderInfo'>
+      <div className='orderInfo'>
         <h2>Orderinfo:</h2>
         <p>Inköpsordernummer: {incomingDeliveryData.purchaseOrderId}</p>
         <p>Adress: {incomingDeliveryData.deliveryAddress}</p>
         <p>Telefonnummer: {incomingDeliveryData.phoneNumber}</p>
-        <p>Email: {incomingDeliveryData.email}</p> 
+        <p>Email: {incomingDeliveryData.email}</p>
         <br />
-    <p><b><Link to={`/inbound/handle/${incomingDeliveryData.incomingDeliveryId}`}>Hantera inleverans</Link></b></p>
-    </div>
-    <br />
-    <div className='orderdata'>
+        <p><b><Link to={`/inbound/handle/${incomingDeliveryData.incomingDeliveryId}`}>Hantera inleverans</Link></b></p>
+      </div>
+      <br />
+      <div className='orderdata'>
         <div>
-            <h2>Lägg till inköps-orderrad:</h2>
-            <ArticleList articles={articles} ArticlePage={IncomingDeliveryRowDetail} incomingDeliveryData={incomingDeliveryData} onAdd={postIncomingDeliveryRows} />
+          <h2>Lägg till inköps-orderrad:</h2>
+          <ArticleList articles={articles} ArticlePage={IncomingDeliveryRowDetail} incomingDeliveryData={incomingDeliveryData} onAdd={postIncomingDeliveryRows} />
         </div>
         <div>
-            <h2>Befintliga inköps-orderrader:</h2>
-            {incomingDeliveryRows.length > 0 ? <ArticleList articles={incomingDeliveryRows} ArticlePage={IncomingDeliveryRowsData} onDelete={deleteIncomingDeliveryRow} /> : 'Inga inköpsorderrader'}
+          <h2>Befintliga inköps-orderrader:</h2>
+          {incomingDeliveryRows.length > 0 ? <ArticleList articles={incomingDeliveryRows} ArticlePage={IncomingDeliveryRowsData} onDelete={deleteIncomingDeliveryRow} /> : 'Inga inköpsorderrader'}
         </div>
-    </div>
-    
-</>
+      </div>
+
+    </>
   )
 }
 

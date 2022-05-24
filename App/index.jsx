@@ -11,8 +11,9 @@ import Footer from './components/Footer';
 import DeliveryDetails from './components/DeliveryDetails';
 import Inbound from './Pages/Inbound';
 import IncomingDeliveryDetails from './components/Inbound/IncomingDeliveryDetails';
-import {useContext, createContext } from 'react';
+import { useContext, createContext } from 'react';
 import HandleIncomingDelivery from './components/Inbound/HandleIncomingDelivery';
+import Stock from './components/Stock/Stock';
 
 export const UserContext = createContext('Unknown');
 
@@ -22,16 +23,16 @@ function App() {
         password: "admin123"
     }
 
-    const [user, setUser] = useState({ username: ""}); //Anger data i state vid inloggningen med setUser.
+    const [user, setUser] = useState({ username: "" }); //Anger data i state vid inloggningen med setUser.
     const [error, setError] = useState(""); //Fångar felmeddelande i setError
 
 
     useEffect(() => {
         const getUser = localStorage.getItem("user");
-        
+
 
         if (getUser != null) {
-            setUser({username: getUser})
+            setUser({ username: getUser })
         }
     }, [])
 
@@ -54,24 +55,25 @@ function App() {
         localStorage.clear();
     }
 
-    
-    
+
+
     return (
-        
+
         <div className='App'>
             {(user.username != "") ? (
                 <Router>
                     <div>
                         <UserContext.Provider value={localStorage.getItem("user")} >
-                        <Navbar />
-                        <Routes>
-                            <Route path="/deliveries" element={<Deliveries />}></Route>
-                            <Route path="/articles" element={<Articles />}></Route>
-                            <Route path="/inbound" element={<Inbound />}></Route>
-                            <Route path='/deliveries/:id' element={<DeliveryDetails/>}></Route> 
-                            <Route path='/inbound/:id' element={<IncomingDeliveryDetails/>}></Route> 
-                            <Route path='/inbound/handle/:id' element={<HandleIncomingDelivery/>}></Route> 
-                        </Routes>
+                            <Navbar />
+                            <Routes>
+                                <Route path="/deliveries" element={<Deliveries />}></Route>
+                                <Route path="/articles" element={<Articles />}></Route>
+                                <Route path="/inbound" element={<Inbound />}></Route>
+                                <Route path='/deliveries/:id' element={<DeliveryDetails />}></Route>
+                                <Route path='/inbound/:id' element={<IncomingDeliveryDetails />}></Route>
+                                <Route path='/inbound/handle/:id' element={<HandleIncomingDelivery />}></Route>
+                                <Route path='/stock' element={<Stock />}></Route>
+                            </Routes>
                         </UserContext.Provider>
                         <br />
                         <Footer Logout={Logout} />
