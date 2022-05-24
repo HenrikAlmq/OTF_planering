@@ -26,6 +26,7 @@ namespace OTF_backend.Models
         public DbSet<IncomingDelivery> IncomingDeliveries { get; set; }
         public DbSet<IncomingDeliveryRows> IncomingDeliveryRows { get; set; }
         public DbSet<StockLocation> StockLocations { get; set; }
+        public DbSet<ProductStockPosition> ProductStockPositions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite(@"Data Source=Q:\Webbutvecklare.NET\Inlämning\OTF_planering\OTF_backend\OTF.db");

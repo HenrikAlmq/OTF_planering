@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OTF_backend.Models;
 
 namespace OTF_backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220524073440_addedProductStockPosTable")]
+    partial class addedProductStockPosTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -345,50 +347,6 @@ namespace OTF_backend.Migrations
                     b.HasKey("ProductId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("OTF_backend.Models.Stock.ProductStockPosition", b =>
-                {
-                    b.Property<int>("ProductStockPositionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("DeliveryId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime?>("InboundDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int?>("IncomingDeliveryId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("IncomingDeliveryRowId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool?>("Picked")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime?>("PickedDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("StockLocationId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("User")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ProductStockPositionId");
-
-                    b.ToTable("ProductStockPositions");
                 });
 
             modelBuilder.Entity("OTF_backend.Models.Stock.StockLocation", b =>

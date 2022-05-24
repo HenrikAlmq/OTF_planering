@@ -40,6 +40,7 @@ namespace OTF_backend
             services.AddScoped<IIncomingDeliveryRepository, IncomingDeliveryRepository>();
             services.AddScoped<IIncomingDeliveryRowsRepository, IncomingDeliveryRowsRepository>();
             services.AddScoped<IStockLocationRepository, StockLocationRepository>();
+            services.AddScoped<IProductStockPositionRepository, ProductStockPositionRepository>();
 
             services.AddCors();
             services.AddControllers();

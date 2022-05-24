@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OTF_backend.Models;
 
 namespace OTF_backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220524073535_addedNewTableProductStockPos")]
+    partial class addedNewTableProductStockPos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -374,17 +376,11 @@ namespace OTF_backend.Migrations
                     b.Property<DateTime?>("PickedDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("StockLocationId")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("User")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("ProductStockPositionId");
 
