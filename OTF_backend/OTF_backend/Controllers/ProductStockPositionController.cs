@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OTF_backend.Models;
 using OTF_backend.Models.Stock;
 using System;
 using System.Collections.Generic;
@@ -49,20 +50,35 @@ namespace OTF_backend.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ProductStockPosition[]>> Get()
+        public IEnumerable<ProductStock> Get()
         {
             try
             {
-                var results = await _productStockPosition.GetAllProductStock();
+                return _productStockPosition.GetStockPerLocation();
 
-                return results;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                return StatusCode(StatusCodes.Status500InternalServerError, "Database failure");
+                return null;
             }
         }
+        
+        //[HttpGet]
+        //public IEnumerable<ProductStockPosition> getAllStock()
+        //{
+        //    try
+        //    {
+        //        var results = _productStockPosition.GetStockPerLocation();
+
+        //        return results;
+        //    }
+        //    catch (Exception e)
+        //    {
+
+        //        return (IEnumerable<ProductStockPosition>)StatusCode(StatusCodes.Status500InternalServerError, "Database failure");
+        //    }
+        //}
 
     }
 }

@@ -14,6 +14,7 @@ import IncomingDeliveryDetails from './components/Inbound/IncomingDeliveryDetail
 import { useContext, createContext } from 'react';
 import HandleIncomingDelivery from './components/Inbound/HandleIncomingDelivery';
 import Stock from './components/Stock/Stock';
+import ErrorView from './components/ErrorView';
 
 export const UserContext = createContext('Unknown');
 
@@ -63,20 +64,22 @@ function App() {
             {(user.username != "") ? (
                 <Router>
                     <div>
-                        <UserContext.Provider value={localStorage.getItem("user")} >
-                            <Navbar />
-                            <Routes>
-                                <Route path="/deliveries" element={<Deliveries />}></Route>
-                                <Route path="/articles" element={<Articles />}></Route>
-                                <Route path="/inbound" element={<Inbound />}></Route>
-                                <Route path='/deliveries/:id' element={<DeliveryDetails />}></Route>
-                                <Route path='/inbound/:id' element={<IncomingDeliveryDetails />}></Route>
-                                <Route path='/inbound/handle/:id' element={<HandleIncomingDelivery />}></Route>
-                                <Route path='/stock' element={<Stock />}></Route>
-                            </Routes>
-                        </UserContext.Provider>
-                        <br />
-                        <Footer Logout={Logout} />
+                        <ErrorView>
+                            <UserContext.Provider value={localStorage.getItem("user")} >
+                                <Navbar />
+                                <Routes>
+                                    <Route path="/deliveries" element={<Deliveries />}></Route>
+                                    <Route path="/articles" element={<Articles />}></Route>
+                                    <Route path="/inbound" element={<Inbound />}></Route>
+                                    <Route path='/deliveries/:id' element={<DeliveryDetails />}></Route>
+                                    <Route path='/inbound/:id' element={<IncomingDeliveryDetails />}></Route>
+                                    <Route path='/inbound/handle/:id' element={<HandleIncomingDelivery />}></Route>
+                                    <Route path='/stock' element={<Stock />}></Route>
+                                </Routes>
+                            </UserContext.Provider>
+                            <br />
+                            <Footer Logout={Logout} />
+                        </ErrorView>
                     </div>
                 </Router>
             ) : (

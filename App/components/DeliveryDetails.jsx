@@ -45,7 +45,6 @@ const DeliveryDetails = () => {
             }
         }).then(res => {
             setDeliveryRows([...deliveryRows, res.data])
-            console.log(res.data)
         })
     }
 
