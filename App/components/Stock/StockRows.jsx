@@ -8,8 +8,8 @@ const StockRows = ({ delivery }) => {
                 return (
                     <>
                         <div className='show-stock'>
-                            <p>Lagerplats:{level.locationName}</p>
-                            <p>Antal:{level.quantity}</p>
+                            <p>Lagerplats: {level.locationName}</p>
+                            <p>Antal: {level.quantity}</p>
                         </div>
                     </>
                 )

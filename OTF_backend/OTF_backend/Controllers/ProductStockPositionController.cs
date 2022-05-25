@@ -63,22 +63,5 @@ namespace OTF_backend.Controllers
                 return null;
             }
         }
-        
-        //[HttpGet]
-        //public IEnumerable<ProductStockPosition> getAllStock()
-        //{
-        //    try
-        //    {
-        //        var results = _productStockPosition.GetStockPerLocation();
-
-        //        return results;
-        //    }
-        //    catch (Exception e)
-        //    {
-
-        //        return (IEnumerable<ProductStockPosition>)StatusCode(StatusCodes.Status500InternalServerError, "Database failure");
-        //    }
-        //}
-
     }
 }

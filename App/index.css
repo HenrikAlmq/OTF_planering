@@ -162,6 +162,12 @@ a:hover {
   justify-content: space-between;
 }
 
+.form-check p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .icons:hover {
   transform: scale(1.2);
 }
