@@ -37,7 +37,7 @@ const addOrder = (delivery) => {
     <div className='container'>
       <Header title='Ordervy' />
       <AddDelivery onAdd={addOrder}/>
-        <DeliveryList data={deliveries} Comp={Delivery} placeholder={"Sök efter ordernummer..."} filter={"orderId"} nested={false} />
+        <DeliveryList data={deliveries} Comp={Delivery} placeholder={"Sök efter ordernummer..."} filter={"orderId"} />
     </div>
   )
 }

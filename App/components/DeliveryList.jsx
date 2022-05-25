@@ -20,19 +20,9 @@ const DeliveryList = ({ data, Comp, placeholder, filter, nested }) => {
           return val
         }
       }).map((val, index) => {
-        if (nested !== true){
           return (
             <Comp key={index} delivery={val} />
           ) 
-        }
-        if (nested === true) {
-          val.map((subItem) => {
-            return (
-              <Comp key={index} delivery={val} subItem={subItem} /> 
-            )
-          })
-          
-        }
       })}
     </>
   )

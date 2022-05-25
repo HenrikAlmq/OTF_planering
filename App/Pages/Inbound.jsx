@@ -36,7 +36,7 @@ const Inbound = () => {
     <div className='container'>
       <Header title={"Inleveransvy"} />
       <AddIncomingDelivery onAdd={test} />
-        <DeliveryList data={incomingDeliveries} Comp={IncomingDelivery} placeholder={"Sök efter inköpsordernummer..."} filter={"purchaseOrderId"} nested={false} />
+        <DeliveryList data={incomingDeliveries} Comp={IncomingDelivery} placeholder={"Sök efter inköpsordernummer..."} filter={"purchaseOrderId"}/>
         
     </div>
   )

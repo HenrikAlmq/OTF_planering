@@ -23,7 +23,7 @@ const Stock = () => {
   return (
     <div className='container'>
       <Header title={"Lagervy"} />
-        <DeliveryList data={stock} Comp={ShowStock} placeholder={"Sök efter artikelnummer.."} filter={"articleNumber"} nested={false}/>
+        <DeliveryList data={stock} Comp={ShowStock} placeholder={"Sök efter artikelnummer.."} filter={"articleNumber"} />
     </div>
   )
 }
