@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Search from '../image/search.svg'
 import { BiSearchAlt } from 'react-icons'
 
-const DeliveryList = ({ data, Comp, placeholder, filter }) => {
+const DeliveryList = ({ data, Comp, placeholder, filter, nested }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
@@ -20,9 +20,19 @@ const DeliveryList = ({ data, Comp, placeholder, filter }) => {
           return val
         }
       }).map((val, index) => {
-        return (
-          <Comp key={index} delivery={val} />
-        )
+        if (nested !== true){
+          return (
+            <Comp key={index} delivery={val} />
+          ) 
+        }
+        if (nested === true) {
+          val.map((subItem) => {
+            return (
+              <Comp key={index} delivery={val} subItem={subItem} /> 
+            )
+          })
+          
+        }
       })}
     </>
   )

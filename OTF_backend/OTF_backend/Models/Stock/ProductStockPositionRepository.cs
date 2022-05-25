@@ -54,9 +54,6 @@ namespace OTF_backend.Models.Stock
             }).ToList();
         }
 
-        public IEnumerable<ProductStockPosition> GetStockPerLocationdd()
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

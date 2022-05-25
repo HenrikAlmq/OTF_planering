@@ -260,3 +260,10 @@ td, th {
   list-style: none !important;
   display: list-item
 }
+
+.show-stock {
+  border: 1px solid black;
+  margin: 5px;
+  padding: 5px;
+  width: 350px;
+}
