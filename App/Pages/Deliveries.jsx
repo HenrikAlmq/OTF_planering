@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import { useState, useEffect } from 'react'
 import DeliveryList from '../components/DeliveryList';
 import AddDelivery from '../components/AddDelivery';
-import { getDeliveriesAPI } from '../Adapters/ArticleAdapter';
+import { getDeliveriesAPI } from '../Adapters/DeliveryAdapter';
 import Delivery from '../components/Delivery';
 import axios from 'axios';
 

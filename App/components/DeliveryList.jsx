@@ -3,8 +3,9 @@ import Delivery from './Delivery'
 import { useState } from 'react'
 import Search from '../image/search.svg'
 import { BiSearchAlt } from 'react-icons'
+import propTypes from 'prop-types'
 
-const DeliveryList = ({ data, Comp, placeholder, filter, nested }) => {
+const DeliveryList = ({ data, Comp, placeholder, filter }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
@@ -26,6 +27,13 @@ const DeliveryList = ({ data, Comp, placeholder, filter, nested }) => {
       })}
     </>
   )
+}
+
+DeliveryList.propTypes = {
+  placeholder: propTypes.string,
+  filter: propTypes.string.isRequired,
+  data: propTypes.array,
+  Comp: propTypes.func
 }
 
 export default DeliveryList

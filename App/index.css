@@ -16,8 +16,9 @@ input[type=text], input[type=password] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     color: black;
-    
   }
+
+
 
 body {
   background-color: #333;

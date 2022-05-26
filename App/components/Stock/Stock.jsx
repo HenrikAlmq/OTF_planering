@@ -8,16 +8,23 @@ import ShowStock from './ShowStock'
 
 const Stock = () => {
   const [stock, setStock] = useState([]);
+  const [error, setError]  = useState([]);
 
   useEffect(() => {
     const getStock = async () => {
-      const stockFromServer = await getQuantityPerStockAPI();
+      const [stockFromServer, error] = await getQuantityPerStockAPI();
       setStock(stockFromServer);
+      setError(error);
     }
 
     getStock();
   }, [])
 
+  if (error) {
+    return (
+      <h3>Kunde inte ladda in saldo, kontakta helpdesk</h3>
+    )
+  }
  
 
   return (

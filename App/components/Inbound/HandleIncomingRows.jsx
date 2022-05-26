@@ -14,14 +14,24 @@ const HandleIncomingRows = ({ deliveryRows, putDeliveryRow, postStockPosition })
     const [date, setDate] = useState(new Date());
     const [locationId, setLocationId] = useState('');
     const userName = useContext(UserContext);
+    const [error, setError] = useState([]);
+    
     useEffect(() => {
         const getStockLocations = async () => {
-            const stockLocationsFromServer = await getStockLocationsAPI();
+            const [stockLocationsFromServer, error] = await getStockLocationsAPI();
             setlocations(stockLocationsFromServer);
+            setError(error);
         }
         
         getStockLocations();
     }, [])
+
+    console.log(error);
+    if (error) {
+        return (
+            <h1>Fel vid hämtning av lagerplatser, kontakta helpdesk med felkod: {error.message} </h1>
+        )
+    }
     
     const onSuggestHandler = (text, stock) => {
         setText(text);
