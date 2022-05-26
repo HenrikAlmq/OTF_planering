@@ -15,7 +15,7 @@ constructor(props) {
     }
   render() {
     if (this.state.hasError) {
-        return <h1>Något gick fel</h1>
+        alert("Något gick fel!")
     }
     return this.props.children
   }

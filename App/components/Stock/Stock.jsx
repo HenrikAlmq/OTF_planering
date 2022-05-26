@@ -22,7 +22,7 @@ const Stock = () => {
 
   if (error) {
     return (
-      <h3>Kunde inte ladda in saldo, kontakta helpdesk</h3>
+      <h3>Kunde inte ladda in saldo, kontakta helpdesk med felkod: {error.message}</h3>
     )
   }
  
