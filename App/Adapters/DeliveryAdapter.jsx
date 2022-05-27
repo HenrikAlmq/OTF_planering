@@ -30,3 +30,15 @@ export const deleteDeliveryRowAPI = async(id) => {
         method: 'DELETE',
       })
 }
+
+export const postDeliveryRowUpdateAPI = async(body, deliveryId) => {
+     return await axios.put(`${BaseUrl}Delivery/${deliveryId}`, body, {
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+}
+
+export const postAllocateDelivery = async (id) => {
+    return await axios.patch(`${BaseUrl}delivery/${id}/allocate`);
+}

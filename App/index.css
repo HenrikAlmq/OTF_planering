@@ -274,3 +274,30 @@ td, th {
   padding: 5px;
   width: 350px;
 }
+
+.btn-pick {
+  background-color: black;
+  padding: 1px;
+}
+
+.btn-pick:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.picking-container {
+  border: 1px solid black;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  width: 250px;
+  margin-left: 20px;
+}

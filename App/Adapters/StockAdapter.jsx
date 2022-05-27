@@ -22,3 +22,13 @@ export const getQuantityPerStockAPI = async () => {
     }
 
 }
+
+
+export const getStockPositionsByDeliveryId = async (id) => {
+    try {
+        const { data } = await axios.get(`${BaseUrl}ProductStockPosition/${id}`)
+        return [data, null];
+    } catch (error) {
+        return [null, error];
+    }
+}

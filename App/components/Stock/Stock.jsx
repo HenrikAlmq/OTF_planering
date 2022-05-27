@@ -20,12 +20,14 @@ const Stock = () => {
     getStock();
   }, [])
 
-  if (error) {
+  if (error && error.length > 0 ) {
+    console.log(error);
     return (
       <h3>Kunde inte ladda in saldo, kontakta helpdesk med felkod: {error.message}</h3>
     )
   }
  
+  
 
   return (
     <div className='container'>

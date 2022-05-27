@@ -15,6 +15,7 @@ import { useContext, createContext } from 'react';
 import HandleIncomingDelivery from './components/Inbound/HandleIncomingDelivery';
 import Stock from './components/Stock/Stock';
 import ErrorView from './components/ErrorView';
+import HandleDelivery from './components/Delivery/HandleDelivery';
 
 export const UserContext = createContext('Unknown');
 
@@ -72,6 +73,7 @@ function App() {
                                     <Route path="/articles" element={<Articles />}></Route>
                                     <Route path="/inbound" element={<Inbound />}></Route>
                                     <Route path='/deliveries/:id' element={<DeliveryDetails />}></Route>
+                                    <Route path='/pickdelivery/:id' element={<HandleDelivery />}></Route>
                                     <Route path='/inbound/:id' element={<IncomingDeliveryDetails />}></Route>
                                     <Route path='/inbound/handle/:id' element={<HandleIncomingDelivery />}></Route>
                                     <Route path='/stock' element={<Stock />}></Route>

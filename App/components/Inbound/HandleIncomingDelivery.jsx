@@ -42,7 +42,7 @@ const HandleIncomingDelivery = () => {
             setStockPos([...stockPos, res.data])
         })
     }
-    console.log(incomingDeliveryRows);
+    
 
     return (
         <div>
