@@ -43,5 +43,15 @@ namespace OTF_backend.Models.Outbound.Deliveries
 
             return await query.FirstOrDefaultAsync();
         }
+
+        public void AllocateDelivery(int deliveryId)
+        {
+            var deliveryRows = _appDbContext.DeliveryRows.Where(dr => dr.DeliveryId == deliveryId);
+
+            var test = from d in deliveryRows select d.DeliveryRowId;
+
+
+
+        }
     }
 }

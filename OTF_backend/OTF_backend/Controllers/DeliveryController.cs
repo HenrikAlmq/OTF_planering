@@ -78,5 +78,21 @@ namespace OTF_backend.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
         }
+
+        [HttpPatch("{deliveryId}")]
+        public async Task<ActionResult<Delivery>> AllocateOrder(int deliveryId)
+        {
+            try
+            {
+                _deliveryRepository.AllocateDelivery(deliveryId);
+
+                return Ok();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
