@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OTF_backend.Models;
 using OTF_backend.Models.Outbound.Deliveries;
+using OTF_backend.Models.Stock;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +15,12 @@ namespace OTF_backend.Controllers
     public class DeliveryController : ControllerBase
     {
         private readonly IDeliveryRepository _deliveryRepository;
+        private readonly IProductStockPositionRepository _productStockPositionRepository;
 
-        public DeliveryController(IDeliveryRepository deliveryRepository)
+        public DeliveryController(IDeliveryRepository deliveryRepository, IProductStockPositionRepository productStockPositionRepository)
         {
             _deliveryRepository = deliveryRepository;
+            _productStockPositionRepository = productStockPositionRepository;
         }
 
         [HttpGet("{deliveryId}")]
@@ -43,12 +47,14 @@ namespace OTF_backend.Controllers
 
                 return results;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 return StatusCode(StatusCodes.Status500InternalServerError, "Database failure");
             }
         }
+
+        
 
         [HttpPost("create")]
         public async Task<ActionResult<Delivery>> Put(Delivery delivery)
@@ -79,14 +85,28 @@ namespace OTF_backend.Controllers
             }
         }
 
-        [HttpPatch("{deliveryId}")]
-        public async Task<ActionResult<Delivery>> AllocateOrder(int deliveryId)
+        [HttpPatch("{deliveryId}/allocate")]
+        public async Task<ActionResult<bool>> AllocateOrder(int deliveryId)
         {
             try
             {
-                _deliveryRepository.AllocateDelivery(deliveryId);
+                return Ok(_deliveryRepository.AllocateDelivery(deliveryId));
+            }
+            catch (Exception)
+            {
 
-                return Ok();
+                throw;
+            }
+        }
+
+        [HttpPut("{deliveryId}")]
+        public ActionResult<string> UpdateOrder(UpdateOrder updateOrder)
+        {
+            try
+            {
+                _deliveryRepository.UpdateOrder(updateOrder);
+
+                return Ok("Orderrad hanterad");
             }
             catch (Exception)
             {

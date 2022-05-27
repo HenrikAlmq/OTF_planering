@@ -10,5 +10,7 @@ namespace OTF_backend.Models.Stock
         void CreateProductStock(ProductStockPosition productStockPosition);
         Task<ProductStockPosition[]> GetAllProductStock();
         IEnumerable<ProductStock> GetStockPerLocation();
+
+        Task<ProductStockPosition[]> GetDeliveryRowsByDeliveryId(int deliveryId);
     }
 }

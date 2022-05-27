@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OTF_backend.Models.Stock;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace OTF_backend.Models.Outbound.DeliveryRows
         public int OriginalQuantity { get; set; }
         public int PickedQuantity { get; set; }
         public bool Picked { get; set; }
-         
+        
+
     }
 }

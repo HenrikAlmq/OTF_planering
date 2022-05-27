@@ -32,6 +32,16 @@ namespace OTF_backend.Models.Stock
             return await query.ToArrayAsync();
         }
 
+        public async Task<ProductStockPosition[]> GetDeliveryRowsByDeliveryId(int deliveryId)
+        {
+            IQueryable<ProductStockPosition> query = _appDbContext.ProductStockPositions;
+            query = query
+                .Include(p => p.Product)
+                .Where(p => p.DeliveryId == deliveryId);
+
+            return await query.ToArrayAsync();
+        }
+
         public IEnumerable<ProductStock> GetStockPerLocation()
         {
             var groupedProducts = _appDbContext.ProductStockPositions

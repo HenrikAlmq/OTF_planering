@@ -1,4 +1,5 @@
 ﻿using OTF_backend.Models.Outbound;
+using OTF_backend.Models.Outbound.DeliveryRows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -23,7 +24,11 @@ namespace OTF_backend.Models.Stock
         public string Location { get; set; }
         public string User { get; set; }
         public int ProductId { get; set; }
+        public int? DeliveryRowId { get; set; }
         public Product Product { get; set; }
         public StockLocation StockLocation { get; set; }
+
+
+
     }
 }

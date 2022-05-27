@@ -49,6 +49,22 @@ namespace OTF_backend.Controllers
             }
         }
 
+        [HttpGet("{deliveryId}")]
+        public async Task<ActionResult<ProductStockPosition[]>> GetDeliveryRowsById(int deliveryId)
+        {
+            try
+            {
+                var results = await _productStockPosition.GetDeliveryRowsByDeliveryId(deliveryId);
+
+                return results;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+
         [HttpGet]
         public IEnumerable<ProductStock> Get()
         {
