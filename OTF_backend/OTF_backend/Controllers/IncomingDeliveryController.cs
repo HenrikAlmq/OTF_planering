@@ -66,6 +66,7 @@ namespace OTF_backend.Controllers
 
                 return Ok(new
                 {
+                    IncomingDeliveryId = incomingDelivery.IncomingDeliveryId,
                     PurchaseOrderId = incomingDelivery.PurchaseOrderId,
                     DeliveryAddress = incomingDelivery.DeliveryAddress,
                     PhoneNumber = incomingDelivery.PhoneNumber,

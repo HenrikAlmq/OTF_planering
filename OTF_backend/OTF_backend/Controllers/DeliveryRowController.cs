@@ -43,6 +43,7 @@ namespace OTF_backend.Controllers
 
                 return Ok(new
                 {
+                    DeliveryRowId = deliveryrow.DeliveryRowId,
                     DeliveryId = deliveryrow.DeliveryId,
                     ProductId = deliveryrow.ProductId,
                     ArticleNumber = deliveryrow.ArticleNumber,

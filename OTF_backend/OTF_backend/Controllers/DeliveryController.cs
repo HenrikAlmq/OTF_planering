@@ -71,6 +71,7 @@ namespace OTF_backend.Controllers
 
                 return Ok(new
                 {
+                    DeliveryId = delivery.DeliveryId,
                     OrderId = delivery.OrderId,
                     DeliveryAddress = delivery.DeliveryAddress,
                     ZipCode = delivery.ZipCode,
