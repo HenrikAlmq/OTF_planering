@@ -48,7 +48,14 @@ const DeliveryDetails = () => {
         })
     }
 
+    console.log(deliveryRows);
+
     const deleteDeliveryRow = (id) => {
+        
+        if(deliveryRows[0].picked == true) {
+            alert("Går ej ta bort hanterad rad")
+            return;
+        }
         alert("Säker på att du vill ta bort orderrad?");
         deleteDeliveryRowAPI(id);
         setDeliveryRows(deliveryRows.filter((deliveryRow) => deliveryRow.deliveryRowId !== id));

@@ -26,17 +26,10 @@ const Delivery = ({ delivery }) => {
     getDeliveryRowsFromServer();
   }, [])
 
-  // if () {
-  //   return (
-  //     <>
-  //     <Link to={`/pickdelivery/${delivery.deliveryId}`}></Link>
-  //     </>
-  //   )
-  // }
 
   const allocateDelivery = async (id) => {
     const didAllocate = await (await postAllocateDelivery(id)).data;
-    console.log(didAllocate);
+    
     if (didAllocate) {
       return navigate (`/pickdelivery/${id}`)  
     } else {

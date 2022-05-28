@@ -28,7 +28,7 @@ const HandleDeliveryRows = ({ deliveryRow, onConfirm }) => {
                             <p>Artikelnummer: {val.product.articleNumber}</p>
                             <p value={val.quantity} onChange={(e) => setQuantity(e.target.value)}>Antal att plocka: {val.quantity * -1}</p>
                             <br />
-                            <button className='btn-pick' onClick={() => addbody(val.quantity, true, val.deliveryRowId, val.deliveryId)}>Bekräfta plock</button>
+                            {!val.picked ? <button className='btn-pick' onClick={() => addbody(val.quantity, true, val.deliveryRowId, val.deliveryId)}>Bekräfta plock</button> : "Orderrad redan hanterad"}
                         </div>
                     </>
                 )
