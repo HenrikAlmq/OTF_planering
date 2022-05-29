@@ -24,17 +24,11 @@ const HandleDelivery = () => {
     }, [])
 
     const handleOrder = async (body, deliveryId) => {
-        console.log(body);
-        console.log(deliveryId);
-
         const response = await postDeliveryRowUpdateAPI(body, deliveryId)
-        console.log(response);
-
+        
         alert(response.data)
     }
 
-  
-    console.log(deliveryRows);
 
     return (
         <div>
